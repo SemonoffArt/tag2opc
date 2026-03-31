@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Конвертер тегов из формата tags.yml в конфигурацию MasterOPC для Siemens PLC (.sdv)
+Конвертер тегов из формата tags.json в конфигурацию MasterOPC для Siemens PLC (.sdv)
 
-Скрипт читает теги из YAML-файла и обновляет указанную группу в SDV-файле,
-заменяя существующие теги на новые из YAML.
+Скрипт читает теги из JSON-файла и обновляет указанную группу в SDV-файле,
+заменяя существующие теги на новые из JSON.
 """
 
 import csv
@@ -12,8 +12,6 @@ import re
 import sys
 from pathlib import Path
 from typing import Any, Optional
-
-import yaml
 
 
 def parse_tags_list_groups(filepath: Path) -> dict[str, list[str]]:
@@ -87,10 +85,10 @@ def parse_plc_address(plc_input: dict[str, Any]) -> dict[str, Any]:
 
 def map_type(yaml_type: str) -> tuple[str, str]:
     """
-    Маппинг типа данных из YAML в формат SDV.
+    Маппинг типа данных из JSON в формат SDV.
 
     Args:
-        yaml_type: Тип данных из YAML (например, 'Float', '16 Bit/Time')
+        yaml_type: Тип данных из JSON (например, 'Float', '16 Bit/Time')
 
     Returns:
         Кортеж (Type, S7DataType):
@@ -111,9 +109,13 @@ def map_type(yaml_type: str) -> tuple[str, str]:
     if '32 bit' in yaml_type_lower:
         return ('int32', 'DINT')
 
+    # # 8-битные типы
+    # if '8 bit' in yaml_type_lower or 'byte' in yaml_type_lower:
+    #     return ('byte', 'BYTE')
+
     # 8-битные типы
     if '8 bit' in yaml_type_lower or 'byte' in yaml_type_lower:
-        return ('byte', 'BYTE')
+        return ('bool', 'BOOL')     
 
     # Bool типы
     if 'bool' in yaml_type_lower or 'bit' in yaml_type_lower:
@@ -189,7 +191,7 @@ def create_tag_node(tag_data: dict, plc_address: dict, type_info: tuple[str, str
     Создаёт структуру тега в формате SDV.
 
     Args:
-        tag_data: Данные тега из YAML
+        tag_data: Данные тега из JSON
         plc_address: Распарсенный адрес PLC
         type_info: Кортеж (Type, S7DataType)
 
@@ -492,7 +494,7 @@ def create_tags_csv(tags: list[dict], output_path: Path) -> None:
     """
     Создаёт CSV файл со всеми полями из тегов.
     Вложенные структуры разворачиваются в отдельные колонки.
-    Порядок колонок соответствует порядку полей в YAML.
+    Порядок колонок соответствует порядку полей в JSON.
 
     Args:
         tags: Список структур тегов
@@ -521,7 +523,7 @@ def create_tags_csv(tags: list[dict], output_path: Path) -> None:
     # Плоская структура тегов
     flat_tags = [flatten_tag(tag) for tag in tags]
 
-    # Сохраняем порядок полей как в первом теге (как в YAML)
+    # Сохраняем порядок полей как в первом теге (как в JSON)
     fieldnames = list(flat_tags[0].keys())
 
     with open(output_path, 'w', encoding='utf-8', newline='') as f:
@@ -534,17 +536,17 @@ def create_tags_csv(tags: list[dict], output_path: Path) -> None:
 
 def convert_tags_groups_to_sdv(
     tags_list_path: Path,
-    yaml_path: Path,
+    json_path: Path,
     sdv_path: Path,
     output_path: Path
 ) -> None:
     """
-    Конвертирует теги из YAML в SDV с группировкой по tags_list.txt.
+    Конвертирует теги из JSON в SDV с группировкой по tags_list.txt.
     Каждая группа из tags_list.txt создаёт отдельный узел node_xx1, node_xx2 и т.д.
 
     Args:
         tags_list_path: Путь к файлу tags_list.txt с группами
-        yaml_path: Путь к файлу tags.yaml с данными тегов
+        yaml_path: Путь к файлу tags.json с данными тегов
         sdv_path: Путь к шаблону .sdv файла
         output_path: Путь для выходного файла
     """
@@ -558,13 +560,13 @@ def convert_tags_groups_to_sdv(
     total_tags = sum(len(tags) for tags in groups.values())
     print(f"Найдено групп: {len(groups)}, всего тегов: {total_tags}")
 
-    print(f"Загрузка YAML из {yaml_path}...")
-    with open(yaml_path, 'r', encoding='utf-8') as f:
-        all_yaml_tags = yaml.safe_load(f)
+    print(f"Загрузка JSON из {json_path}...")
+    with open(json_path, 'r', encoding='utf-8') as f:
+        all_yaml_tags = json.load(f)
 
     # Создаём словарь для быстрого поиска тегов по имени
     yaml_tags_dict = {tag['Tag']: tag for tag in all_yaml_tags}
-    print(f"Загружено {len(all_yaml_tags)} тегов из YAML")
+    print(f"Загружено {len(all_yaml_tags)} тегов из JSON")
 
     print(f"Загрузка SDV шаблона из {sdv_path}...")
     sdv_data = load_sdv_file(sdv_path)
@@ -587,7 +589,7 @@ def convert_tags_groups_to_sdv(
         skipped_tags = []
         for tag_name in tag_names:
             if tag_name not in yaml_tags_dict:
-                skipped_tags.append(f"Тег '{tag_name}' не найден в YAML")
+                skipped_tags.append(f"Тег '{tag_name}' не найден в JSON")
                 continue
 
             tag_data = yaml_tags_dict[tag_name]
@@ -668,13 +670,13 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description='Конвертер тегов из YAML в конфигурацию Siemens PLC (.sdv)'
+        description='Конвертер тегов из JSON в конфигурацию Siemens PLC (.sdv)'
     )
     parser.add_argument(
-        '--yaml', '-y',
+        '--json', '-j',
         type=Path,
-        default=Path('./data/tags.yaml'),
-        help='Путь к файлу tags.yml (по умолчанию: data/tags.yaml)'
+        default=Path('./data/tags.json'),
+        help='Путь к файлу tags.json (по умолчанию: tags.json)'
     )
     parser.add_argument(
         '--sdv', '-s',
@@ -715,9 +717,9 @@ def main():
     parser.add_argument(
         '--mode', '-m',
         type=str,
-        choices=['yaml', 'groups'],
+        choices=['json', 'groups'],
         default='groups',
-        help='Режим работы: yaml (обычная конвертация) или groups (с группами из tags_list.txt)'
+        help='Режим работы: json (обычная конвертация) или groups (с группами из tags_list.txt)'
     )
 
     args = parser.parse_args()
@@ -733,13 +735,13 @@ def main():
             print(f"Ошибка: Файл tags_list не найден: {args.tags_list}")
             sys.exit(1)
 
-        if not args.yaml.exists():
-            print(f"Ошибка: Файл YAML не найден: {args.yaml}")
+        if not args.json.exists():
+            print(f"Ошибка: Файл JSON не найден: {args.json}")
             sys.exit(1)
 
         convert_tags_groups_to_sdv(
             tags_list_path=args.tags_list,
-            yaml_path=args.yaml,
+            json_path=args.json,
             sdv_path=args.sdv,
             output_path=args.output
         )
