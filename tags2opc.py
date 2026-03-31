@@ -59,52 +59,30 @@ def parse_tags_list_groups(filepath: Path) -> dict[str, list[str]]:
     return groups
 
 
-def parse_plc_address(plc_inp: str) -> dict[str, Any]:
+def parse_plc_address(plc_input: dict[str, Any]) -> dict[str, Any]:
     """
-    Парсит адрес PLC_INP в формате %DB4.DBD320 или %DB4.DBB320 и т.д.
+    Создаёт адрес PLC из словаря PLC.Input.
 
     Args:
-        plc_inp: Строка адреса, например '%DB4.DBD320'
+        plc_input: Словарь PLC.Input с ключами Block, Word, Bit
 
     Returns:
         Словарь с компонентами адреса:
-        - area: 'DB', 'I', 'Q', 'M', 'T', 'C'
-        - db_number: номер блока данных (для DB)
+        - area: 'DB'
+        - db_number: номер блока данных
         - byte_address: адрес байта
-        - bit_address: адрес бита (всегда 0 для word/dword адресов)
-
-    Raises:
-        ValueError: Если формат адреса не распознан
+        - bit_address: адрес бита
     """
-    # Паттерн для адресов типа %DB4.DBD320, %DB4.DBB320, %DB4.DBDW320
-    pattern_db = r'^%DB(\d+)\.(DB[BDW])(\d+)$'
-    # Паттерн для адресов типа %I0.0, %Q0.0, %M0.0
-    pattern_simple = r'^%([IQMTC])(\d+)(?:\.(\d+))?$'
-
-    match_db = re.match(pattern_db, plc_inp)
-    if match_db:
-        db_number = int(match_db.group(1))
-        byte_address = int(match_db.group(3))
-        return {
-            'area': 'DB',
-            'db_number': db_number,
-            'byte_address': byte_address,
-            'bit_address': 0
-        }
-
-    match_simple = re.match(pattern_simple, plc_inp)
-    if match_simple:
-        area = match_simple.group(1)
-        byte_address = int(match_simple.group(2))
-        bit_address = int(match_simple.group(3)) if match_simple.group(3) else 0
-        return {
-            'area': area,
-            'db_number': 0,
-            'byte_address': byte_address,
-            'bit_address': bit_address
-        }
-
-    raise ValueError(f"Не распознан формат адреса PLC_INP: {plc_inp}")
+    plc_block = plc_input.get('Block', 0)
+    plc_word = plc_input.get('Word', 0)
+    plc_bit = plc_input.get('Bit', 0)
+    
+    return {
+        'area': 'DB',
+        'db_number': plc_block,
+        'byte_address': plc_word,
+        'bit_address': plc_bit
+    }
 
 
 def map_type(yaml_type: str) -> tuple[str, str]:
@@ -613,15 +591,17 @@ def convert_tags_groups_to_sdv(
                 continue
 
             tag_data = yaml_tags_dict[tag_name]
-            plc_inp = tag_data.get('PLC_INP', '')
-            yaml_type = tag_data.get('PLC', {}).get('Input', {}).get('Type', '')
+            
+            # Извлекаем адрес из PLC.Input
+            plc_input = tag_data.get('PLC', {}).get('Input', {})
+            yaml_type = plc_input.get('Type', '')
 
-            if not plc_inp:
-                skipped_tags.append(f"Тег '{tag_name}': нет PLC_INP")
+            if not plc_input or plc_input.get('Block') is None or plc_input.get('Word') is None:
+                skipped_tags.append(f"Тег '{tag_name}': нет PLC.Input.Block или PLC.Input.Word")
                 continue
 
             try:
-                plc_address = parse_plc_address(plc_inp)
+                plc_address = parse_plc_address(plc_input)
             except ValueError as e:
                 skipped_tags.append(f"Тег '{tag_name}': {e}")
                 continue
@@ -632,7 +612,7 @@ def convert_tags_groups_to_sdv(
             tag_node = create_tag_node(tag_data, plc_address, type_info)
             converted_tags.append(tag_node)
 
-            print(f"  ✓ {tag_name} -> {plc_inp} ({type_info[0]}/{type_info[1]})")
+            print(f"  ✓ {tag_name} -> DB{plc_address['db_number']}.DBD{plc_address['byte_address']} (bit: {plc_address['bit_address']}) ({type_info[0]}/{type_info[1]})")
 
         # Выводим список пропущенных тегов
         if skipped_tags:
