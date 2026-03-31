@@ -1,0 +1,254 @@
+Id,Tag,Groups,DescEng,DescRus,Algorithms_ConvAlg,Algorithms_CalcAlg,Algorithms_BlockAlg,PLC_PLCNo,PLC_FC,PLC_Input_Type,PLC_Input_Block,PLC_Input_Word,PLC_Input_Bit,PLC_Output_Type,PLC_Output_Block,PLC_Output_Word,PLC_Output_Bit,PLC_INP,Mimics,EngUnitId,Format,Constant1
+764,050AG280M01_I01,991CD100G51,Agitator Current,"Мешалка, ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,9,256,0,,0,0,0,%DB9.DBD256,,A,0,1.0
+765,050AG281M01_I01,991CD100G52,Agitator Current,"Мешалка, ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,9,260,0,,0,0,0,%DB9.DBD260,,A,0,1.0
+1126,050SF280U01_SP,991CD100G51,Starch SetPoint,Уставка по крахмалу,4 Int/Ext,1,0 No Algorithm,991,0,Float,17,936,0,Float,17,936,0,%DB17.DBD936,,g/t,0,1.0
+1131,050SF280U01_PV_SP,991CD100G51,Starch Calculated Flow PV,Расчетный объем подачи крахмала,4 Int/Ext,1,0 No Algorithm,991,0,Float,17,956,0,Float,17,956,0,%DB17.DBD956,,g/min,0,1.0
+1127,050SF281U01_SP,991CD100G52,Starch SetPoint,Уставка по крахмалу,4 Int/Ext,1,0 No Algorithm,991,0,Float,17,940,0,Float,17,940,0,%DB17.DBD940,,g/t,0,1.0
+1132,050SF281U01_PV_SP,991CD100G52,Starch Calculated Flow PV,Расчетный объем подачи крахмала,4 Int/Ext,1,0 No Algorithm,991,0,Float,17,960,0,Float,17,960,0,%DB17.DBD960,,g/min,0,1.0
+-3914,920PU375_75I01,992CD100G04,920PU375 Flow,920PU375 Регулятор CuSo4,33 Controller Mode (V7.7),0,41 Siemens V77 PID,992,3567,16 Bit/Time,21,268,0,16 Bit,3567,82,0,%DB21.DBD268,,,,
+1991,920PU375_75I01_SPA,992CD100G04,920PU375 Flow,920PU375 Регулятор CuSo4,3 Stop/Run,1,41 Siemens V77 PID,992,3567,Float,20,536,0,Float,20,536,0,%DB20.DBD536,,l/min,1,100.0
+1992,920PU375_75I01_SPM,992CD100G04,920PU375 Flow,920PU375 Регулятор CuSo4,4 Int/Ext,1,41 Siemens V77 PID,992,3567,Float,20,540,0,Float,20,540,0,%DB20.DBD540,,%,1,100.0
+1355,905RP100A01WORD140,992CD100G04,"920-TK370-N01
+. Water Flow","920-TK370-N01
+. Расход воды",1 Off/On,50,42 Siemens V77 Ext AI,992,3108,Flt/Trig/Sts,15,1296,0,,0,0,0,%DB15.DBD1296,,l/min,1,1.0
+-3910,920PU374_75I01,992CD100G04,TK904 FeSo4 Flow,TK904 FeSo4 поток,33 Controller Mode (V7.7),0,41 Siemens V77 PID,992,3565,16 Bit/Time,21,260,0,16 Bit,3565,82,0,%DB21.DBD260,,,,
+1983,920PU374_75I01_SPA,992CD100G04,TK904 FeSo4 Flow,Поток FeSo4 ТК904,3 Stop/Run,1,41 Siemens V77 PID,992,3565,Float,20,520,0,Float,20,520,0,%DB20.DBD520,,l/min,1,100.0
+1984,920PU374_75I01_SPM,992CD100G04,TK904 FeSo4 Flow,Поток FeSo4 ТК904,4 Int/Ext,1,41 Siemens V77 PID,992,3565,Float,20,524,0,Float,20,524,0,%DB20.DBD524,,%,1,100.0
+1358,905RP100A01WORD146,992CD100G04,"920-PU374-N01
+.TK904 CuSo4 Flow","920-PU374-N01
+. Расход CuSo4",1 Off/On,50,42 Siemens V77 Ext AI,992,3111,Flt/Trig/Sts,15,1332,0,,0,0,0,%DB15.DBD1332,,l/min,1,1.0
+235,050TK281N01A01,991CD100G52,"Conditioning Tank, pH","Чан контактный, рН",1 Off/On,50,42 Siemens V77 Ext AI,991,3162,Flt/Trig/Sts,15,1944,0,,0,0,0,%DB15.DBD1944,,pH,2,1.0
+842,050FL235M01_I01,991CD100G52,Rotor-1 Current,"Ротор-1, ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,9,568,0,,0,0,0,%DB9.DBD568,,A,0,1.0
+-1939,050FL235I01,991CD100G52,Level control Y50/Y51 Mode,Режим контроля уровня Y50/51,33 Controller Mode (V7.7),0,41 Siemens V77 PID,991,3522,16 Bit/Time,21,88,0,16 Bit,3522,82,0,%DB21.DBD88,,,,
+948,050FL235I01_SPA,991CD100G52,Level control Y50/Y51,Контроль уровня Y50/Y51,3 Stop/Run,1,41 Siemens V77 PID,991,3522,Float,20,176,0,Float,20,176,0,%DB20.DBD176,,mm,0,500.0
+949,050FL235I01_SPM,991CD100G52,Level control Y50/Y51,Контроль уровня Y50/Y51,4 Int/Ext,1,41 Siemens V77 PID,991,3522,Float,20,180,0,Float,20,180,0,%DB20.DBD180,,%,2,100.0
+236,050FL235N01L01,991CD100G52,Rougher&Scavanger FlotationLevel,Контрольная флот. Уровень,1 Off/On,50,42 Siemens V77 Ext AI,991,3163,Flt/Trig/Sts,15,1956,0,,0,0,0,%DB15.DBD1956,,mm,0,1.0
+843,050FL235M02_I01,991CD100G52,Rotor-2 Current,"Ротор-2, ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,9,572,0,,0,0,0,%DB9.DBD572,,A,0,1.0
+-1940,050FL235I02,991CD100G52,Level control Y60/Y61 Mode,Режим контроля уровня Y60/61,33 Controller Mode (V7.7),0,41 Siemens V77 PID,991,3523,16 Bit/Time,21,92,0,16 Bit,3523,82,0,%DB21.DBD92,,,,
+952,050FL235I02_SPA,991CD100G52,Level control Y60/Y61,Контроль уровня Y60/Y61,3 Stop/Run,1,41 Siemens V77 PID,991,3523,Float,20,184,0,Float,20,184,0,%DB20.DBD184,,mm,0,500.0
+953,050FL235I02_SPM,991CD100G52,Level control Y60/Y61,Контроль уровня Y60/Y61,4 Int/Ext,1,41 Siemens V77 PID,991,3523,Float,20,188,0,Float,20,188,0,%DB20.DBD188,,%,2,100.0
+237,050FL235N06L01,991CD100G52,Rougher&Scavanger FlotationLevel,Контрольная флот. Уровень,1 Off/On,50,42 Siemens V77 Ext AI,991,3164,Flt/Trig/Sts,15,1968,0,,0,0,0,%DB15.DBD1968,,mm,0,1.0
+850,050FL235M03_I01,991CD100G52,Rotor-3 Current,"Ротор-3, ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,9,600,0,,0,0,0,%DB9.DBD600,,A,0,1.0
+855,050FL235M04_I01,991CD100G52,Rotor-4 Current,"Ротор-4, ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,9,620,0,,0,0,0,%DB9.DBD620,,A,0,1.0
+-1941,050FL235I03,991CD100G52,Level control Y70/Y71 Mode,Режим контроля уровня Y70/71,33 Controller Mode (V7.7),0,41 Siemens V77 PID,991,3524,16 Bit/Time,21,96,0,16 Bit,3524,82,0,%DB21.DBD96,,,,
+956,050FL235I03_SPA,991CD100G52,Level control Y70/Y71,Контроль уровня Y70/Y71,3 Stop/Run,1,41 Siemens V77 PID,991,3524,Float,20,192,0,Float,20,192,0,%DB20.DBD192,,mm,0,500.0
+957,050FL235I03_SPM,991CD100G52,Level control Y70/Y71,Контроль уровня Y70/Y71,4 Int/Ext,1,41 Siemens V77 PID,991,3524,Float,20,196,0,Float,20,196,0,%DB20.DBD196,,%,2,100.0
+238,050FL235N09L01,991CD100G52,Rougher&Scavanger FlotationLevel,Контрольная флот. Уровень,1 Off/On,50,42 Siemens V77 Ext AI,991,3165,Flt/Trig/Sts,15,1980,0,,0,0,0,%DB15.DBD1980,,mm,0,1.0
+856,050FL235M05_I01,991CD100G52,Rotor-5 Current,"Ротор-5, ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,9,624,0,,0,0,0,%DB9.DBD624,,A,0,1.0
+-1942,050FL235I04,991CD100G52,Level control Y80/Y81 Mode,Режим контроля уровня Y80/81,33 Controller Mode (V7.7),0,41 Siemens V77 PID,991,3525,16 Bit/Time,21,100,0,16 Bit,3525,82,0,%DB21.DBD100,,,,
+960,050FL235I04_SPA,991CD100G52,Level control Y80,Контроль уровня Y80,3 Stop/Run,1,41 Siemens V77 PID,991,3525,Float,20,200,0,Float,20,200,0,%DB20.DBD200,,mm,0,500.0
+961,050FL235I04_SPM,991CD100G52,Level control Y80,Контроль уровня Y80,4 Int/Ext,1,41 Siemens V77 PID,991,3525,Float,20,204,0,Float,20,204,0,%DB20.DBD204,,%,2,100.0
+239,050FL235N20L01,991CD100G52,Rougher&Scavanger FlotationLevel,Контрольная флот. Уровень,1 Off/On,50,42 Siemens V77 Ext AI,991,3166,Flt/Trig/Sts,15,1992,0,,0,0,0,%DB15.DBD1992,,mm,0,1.0
+863,050FL235M06_I01,991CD100G52,Rotor-6 Current,"Ротор-6, ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,9,652,0,,0,0,0,%DB9.DBD652,,A,0,1.0
+-1934,050FL230I01,991CD100G51,Level control Y50/51 Mode,Режим контроля уровня Y50/51,33 Controller Mode (V7.7),0,41 Siemens V77 PID,991,3517,16 Bit/Time,21,68,0,16 Bit,3517,82,0,%DB21.DBD68,,,,
+928,050FL230I01_SPA,991CD100G51,Level control Y50/51,Контроль уровня Y50/51,3 Stop/Run,1,41 Siemens V77 PID,991,3517,Float,20,136,0,Float,20,136,0,%DB20.DBD136,,mm,0,500.0
+929,050FL230I01_SPM,991CD100G51,Level control Y50/51,Контроль уровня Y50/51,4 Int/Ext,1,41 Siemens V77 PID,991,3517,Float,20,140,0,Float,20,140,0,%DB20.DBD140,,%,2,100.0
+231,050FL230N01L01,991CD100G51,Rougher&Scavanger FlotationLevel,Контрольная флот. Уровень,1 Off/On,50,42 Siemens V77 Ext AI,991,3158,Flt/Trig/Sts,15,1896,0,,0,0,0,%DB15.DBD1896,,mm,0,1.0
+816,050FL230M01_I01,991CD100G51,Rotor-1 Current,"Ротор-1, ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,9,464,0,,0,0,0,%DB9.DBD464,,A,0,1.0
+817,050FL230M02_I01,991CD100G51,Rotor-2 Current,"Ротор-2, ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,9,468,0,,0,0,0,%DB9.DBD468,,A,0,1.0
+-1935,050FL230I02,991CD100G51,Level control Y60/61 Mode,Режим контроля уровня Y60/61,33 Controller Mode (V7.7),0,41 Siemens V77 PID,991,3518,16 Bit/Time,21,72,0,16 Bit,3518,82,0,%DB21.DBD72,,,,
+932,050FL230I02_SPA,991CD100G51,Level control Y60/61,Контроль уровня Y60/61,3 Stop/Run,1,41 Siemens V77 PID,991,3518,Float,20,144,0,Float,20,144,0,%DB20.DBD144,,mm,0,500.0
+933,050FL230I02_SPM,991CD100G51,Level control Y60/61,Контроль уровня Y60/61,4 Int/Ext,1,41 Siemens V77 PID,991,3518,Float,20,148,0,Float,20,148,0,%DB20.DBD148,,%,0,100.0
+232,050FL230N06L01,991CD100G51,Rougher&Scavanger FlotationLevel,Контрольн.флот. Уровень,1 Off/On,50,42 Siemens V77 Ext AI,991,3159,Flt/Trig/Sts,15,1908,0,,0,0,0,%DB15.DBD1908,,mm,0,1.0
+824,050FL230M03_I01,991CD100G51,Rotor-3 Current,"Ротор-3, ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,9,496,0,,0,0,0,%DB9.DBD496,,A,0,1.0
+829,050FL230M04_I01,991CD100G51,Rotor-4 Current,"Ротор-4, ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,9,516,0,,0,0,0,%DB9.DBD516,,A,0,1.0
+-1936,050FL230I03,991CD100G51,Level control Y70/71 Mode,Режим контроля уровня Y70/71,33 Controller Mode (V7.7),0,41 Siemens V77 PID,991,3519,16 Bit/Time,21,76,0,16 Bit,3519,82,0,%DB21.DBD76,,,,
+936,050FL230I03_SPA,991CD100G51,Level control Y70/71,Контроль уровня Y70/71,3 Stop/Run,1,41 Siemens V77 PID,991,3519,Float,20,152,0,Float,20,152,0,%DB20.DBD152,,mm,0,500.0
+937,050FL230I03_SPM,991CD100G51,Level control Y70/71,Контроль уровня Y70/71,4 Int/Ext,1,41 Siemens V77 PID,991,3519,Float,20,156,0,Float,20,156,0,%DB20.DBD156,,%,2,100.0
+233,050FL230N09L01,991CD100G51,Rougher&Scavanger FlotationLevel,Контрольная флот. Уровень,1 Off/On,50,42 Siemens V77 Ext AI,991,3160,Flt/Trig/Sts,15,1920,0,,0,0,0,%DB15.DBD1920,,mm,0,1.0
+830,050FL230M05_I01,991CD100G51,Rotor-5 Current,"Ротор-5, ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,9,520,0,,0,0,0,%DB9.DBD520,,A,0,1.0
+-1937,050FL230I04,991CD100G51,Level control Y80/81 Mode,Режим контроля уровня Y80/81,33 Controller Mode (V7.7),0,41 Siemens V77 PID,991,3520,16 Bit/Time,21,80,0,16 Bit,3520,82,0,%DB21.DBD80,,,,
+940,050FL230I04_SPA,991CD100G51,Level control Y80,Контроль уровня Y80,3 Stop/Run,1,41 Siemens V77 PID,991,3520,Float,20,160,0,Float,20,160,0,%DB20.DBD160,,mm,0,500.0
+941,050FL230I04_SPM,991CD100G51,Level control Y80,Контроль уровня Y80,4 Int/Ext,1,41 Siemens V77 PID,991,3520,Float,20,164,0,Float,20,164,0,%DB20.DBD164,,%,2,100.0
+234,050FL230N20L01,991CD100G51,Rougher&Scavanger FlotationLevel,Контрольная флот. Уровень,1 Off/On,50,42 Siemens V77 Ext AI,991,3161,Flt/Trig/Sts,15,1932,0,,0,0,0,%DB15.DBD1932,,mm,0,1.0
+837,050FL230M06_I01,991CD100G51,Rotor-6 Current,"Ротор-6, ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,9,548,0,,0,0,0,%DB9.DBD548,,A,0,1.0
+1963,905PU937_38I01_SPA,992CD100G04,"FL230, Frother Addition","Добавление вспенив-ля, FL230",3 Stop/Run,1,41 Siemens V77 PID,992,3560,Float,20,480,0,Float,20,480,0,%DB20.DBD480,,lit/h,1,100.0
+1964,905PU937_38I01_SPM,992CD100G04,"FL230, Frother Addition","Добавление ксантогената, FL230",4 Int/Ext,1,41 Siemens V77 PID,992,3560,Float,20,484,0,Float,20,484,0,%DB20.DBD484,,%,1,100.0
+1372,905RP100A01WORD20,992CD100G04,"905-PU937-N01
+","905-PU937-N01
+",1 Off/On,50,42 Siemens V77 Ext AI,992,3125,Flt/Trig/Sts,15,1500,0,,0,0,0,%DB15.DBD1500,,lit/h,1,1.0
+-3904,905PU941_42I01,992CD100G04,"FL235, Frother Addition",Добавление вспенивателя FL235,33 Controller Mode (V7.7),0,41 Siemens V77 PID,992,3562,16 Bit/Time,21,248,0,16 Bit,3562,82,0,%DB21.DBD248,,,,
+1971,905PU941_42I01_SPA,992CD100G04,"FL235, Frother Addition","Добавление вспенив-ля, FL235",3 Stop/Run,1,41 Siemens V77 PID,992,3562,Float,20,496,0,Float,20,496,0,%DB20.DBD496,,lit/h,1,100.0
+1972,905PU941_42I01_SPM,992CD100G04,"FL235, Frother Addition","Добавление ксантогената, FL235",4 Int/Ext,1,41 Siemens V77 PID,992,3562,Float,20,500,0,Float,20,500,0,%DB20.DBD500,,%,1,100.0
+1384,905RP100A01WORD24,992CD100G04,"905-PU941-N01
+","905-PU941-N01
+",1 Off/On,50,42 Siemens V77 Ext AI,992,3137,Flt/Trig/Sts,15,1644,0,,0,0,0,%DB15.DBD1644,,lit/h,1,1.0
+1959,900PU929I01_SPA,992CD100G04,"FL260, Xanthate Addition","Добавление ксантогената, FL260",3 Stop/Run,1,41 Siemens V77 PID,992,3559,Float,20,472,0,Float,20,472,0,%DB20.DBD472,,l/min,1,100.0
+1341,900RP100A01INT132,992CD100G04,900-PU929-N01,900-PU929-N01,1 Off/On,50,42 Siemens V77 Ext AI,992,3094,Flt/Trig/Sts,15,1128,0,,0,0,0,%DB15.DBD1128,,l/min,1,1.0
+1947,900PU931I01_SPA,992CD100G04,"TK281, Xanthate Addition","Добавление ксантогената, ТК281",3 Stop/Run,1,41 Siemens V77 PID,992,3556,Float,20,448,0,Float,20,448,0,%DB20.DBD448,,l/min,1,100.0
+1338,900RP100A01INT126,992CD100G04,900-PU931-N01,900-PU931-N01,1 Off/On,50,42 Siemens V77 Ext AI,992,3091,Flt/Trig/Sts,15,1092,0,,0,0,0,%DB15.DBD1092,,l/min,1,1.0
+1340,900RP100A01INT130,992CD100G04,900-PU998-N01,900-PU998-N01,1 Off/On,50,42 Siemens V77 Ext AI,992,3093,Flt/Trig/Sts,15,1116,0,,0,0,0,%DB15.DBD1116,,l/min,1,1.0
+1339,900RP100A01INT128,992CD100G04,900-PU999-N01,900-PU999-N01,1 Off/On,50,42 Siemens V77 Ext AI,992,3092,Flt/Trig/Sts,15,1104,0,,0,0,0,%DB15.DBD1104,,l/min,1,1.0
+912,060SU354I01_SPA,991CD100G03,Level Control,Контроль уровня,3 Stop/Run,1,41 Siemens V77 PID,991,3513,Float,20,104,0,Float,20,104,0,%DB20.DBD104,,%,0,100.0
+913,060SU354I01_SPM,991CD100G03,Level Control,Контроль уровня,4 Int/Ext,1,41 Siemens V77 PID,991,3513,Float,20,108,0,Float,20,108,0,%DB20.DBD108,,%,2,100.0
+119,060SU354N01L01,991CD100G03,"Feed Tank, Level","Емкость питания,уровень",1 Off/On,50,42 Siemens V77 Ext AI,991,3104,Flt/Trig/Sts,15,1248,0,,0,0,0,%DB15.DBD1248,,%,2,1.0
+327,050PU273N01F01,991CD100G51,Flow PU273,Расход PU273,1 Off/On,50,42 Siemens V77 Ext AI,991,3204,Flt/Trig/Sts,15,2448,0,,0,0,0,%DB15.DBD2448,,m3/h,0,1.0
+225,050PU270U01J01,991CD100G51,Froth Pump Rougher Power ,Насос пены.Основн.флот. Мощность,1 Off/On,50,42 Siemens V77 Ext AI,991,3152,Flt/Trig/Sts,15,1824,0,,0,0,0,%DB15.DBD1824,,kW,0,1.0
+224,050PU270U01I01,991CD100G51,Froth Pump Rougher Current,Насос пены.Основн.флот. Ток,1 Off/On,50,42 Siemens V77 Ext AI,991,3151,Flt/Trig/Sts,15,1812,0,,0,0,0,%DB15.DBD1812,,A,0,1.0
+226,050PU270U01S01,991CD100G51,Froth Pump Rougher Speed,Насос пены.Основн.флот. Скорость,1 Off/On,50,42 Siemens V77 Ext AI,991,3153,Flt/Trig/Sts,15,1836,0,,0,0,0,%DB15.DBD1836,,%,0,1.0
+329,050PU271U01J01,991CD100G51,Froth Pump Rougher Power ,"Пенный насос, осн.флот.,Мощн",1 Off/On,50,42 Siemens V77 Ext AI,991,3206,Flt/Trig/Sts,15,2472,0,,0,0,0,%DB15.DBD2472,,kW,0,1.0
+328,050PU271U01I01,991CD100G51,Froth Pump Rougher Current,"Пенный насос, осн.флот., ток",1 Off/On,50,42 Siemens V77 Ext AI,991,3205,Flt/Trig/Sts,15,2460,0,,0,0,0,%DB15.DBD2460,,A,0,1.0
+330,050PU271U01S01,991CD100G51,Froth Pump Rougher Speed,"Пенный насос, осн.флот.,Скорость",1 Off/On,50,42 Siemens V77 Ext AI,991,3207,Flt/Trig/Sts,15,2484,0,,0,0,0,%DB15.DBD2484,,%,0,1.0
+332,050PU272U01J01,991CD100G53,"Froth Pump Cleaner, Power","Пенный насос, перечист.флот.Мощн",1 Off/On,50,42 Siemens V77 Ext AI,991,3209,Flt/Trig/Sts,15,2508,0,,0,0,0,%DB15.DBD2508,,kW,0,1.0
+331,050PU272U01I01,991CD100G53,"Froth Pump Cleaner, Current","Пенный насос, перечист.флот. Ток",1 Off/On,50,42 Siemens V77 Ext AI,991,3208,Flt/Trig/Sts,15,2496,0,,0,0,0,%DB15.DBD2496,,A,0,1.0
+333,050PU272U01S01,991CD100G53,"Froth Pump Cleaner, Speed","Пенный насос, перечист.флот.Скор",1 Off/On,50,42 Siemens V77 Ext AI,991,3210,Flt/Trig/Sts,15,2520,0,,0,0,0,%DB15.DBD2520,,%,0,1.0
+2208,050SF280U01_PV_SP_TOT,991CD100G51,Starch TK280 Flow Totalizer,Счетчик Потока Крахмала TK280,4 Int/Ext,1,0 No Algorithm,991,0,Float,200,36,0,,0,0,0,%DB200.DBD36,,kg,0,1.0
+2210,050SF281U01_PV_SP_TOT,991CD100G52,Starch TK281 Flow Totalizer,Счетчик Потока Крахмала TK281,4 Int/Ext,1,0 No Algorithm,991,0,Float,200,40,0,,0,0,0,%DB200.DBD40,,kg,0,1.0
+-2026,050SF273U02,991CD100G51,Starch Screw Feeder,Шнековый питатель крахмала,81 Ext. UniMotor (V7.7),0,1080 Siemens V77 Ext Motor ACS880,991,2797,16 Bit/Time,4,1188,0,16 Bit,2797,66,0,%DB4.DBD1188,,,,
+1135,050SF273U02_PV_SP,991CD100G51,Starch Calculated Flow PV,Расчетный объем подачи крахмала,4 Int/Ext,1,0 No Algorithm,991,0,Float,17,972,0,Float,17,972,0,%DB17.DBD972,,g/min,0,1.0
+1731,050TK276Y01I01_SPM,992CD100G05,Valve control,Контроль клапана,3 Stop/Run,1,41 Siemens V77 PID,992,3518,Float,20,148,0,Float,20,148,0,%DB20.DBD148,,%,0,100.0
+-1943,050FL260I01,991CD100G53,Air Flow Control Mode,Режим регулир.потока воздуха ,33 Controller Mode (V7.7),0,41 Siemens V77 PID,991,3526,16 Bit/Time,21,104,0,16 Bit,3526,82,0,%DB21.DBD104,,,,
+964,050FL260I01_SPA,991CD100G53,Air Flow Control,Режим регулир.потока воздуха ,3 Stop/Run,1,41 Siemens V77 PID,991,3526,Float,20,208,0,Float,20,208,0,%DB20.DBD208,,m3/h,0,862.0
+965,050FL260I01_SPM,991CD100G53,Air Flow Control,Режим регулир.потока воздуха ,4 Int/Ext,1,41 Siemens V77 PID,991,3526,Float,20,212,0,Float,20,212,0,%DB20.DBD212,,%,2,100.0
+303,050FL260N05F01,991CD100G53,"1St Cleaner Floation Train, Flow",1ый ряд перечист.флотац_ск.поток,1 Off/On,50,42 Siemens V77 Ext AI,991,3180,Flt/Trig/Sts,15,2160,0,,0,0,0,%DB15.DBD2160,,m3/h,0,1.0
+785,050FL260M01_I01,991CD100G53,Rotor-1 Current,"Ротор-1, ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,9,340,0,,0,0,0,%DB9.DBD340,,A,0,1.0
+-1945,050FL260I02,991CD100G53,Air Flow Control Mode,Режим регулир.потока воздуха ,33 Controller Mode (V7.7),0,41 Siemens V77 PID,991,3528,16 Bit/Time,21,112,0,16 Bit,3528,82,0,%DB21.DBD112,,,,
+972,050FL260I02_SPA,991CD100G53,Air Flow Control,Режим регулир.потока воздуха ,3 Stop/Run,1,41 Siemens V77 PID,991,3528,Float,20,224,0,Float,20,224,0,%DB20.DBD224,,m3/h,0,800.0
+973,050FL260I02_SPM,991CD100G53,Air Flow Control,Режим регулир.потока воздуха ,4 Int/Ext,1,41 Siemens V77 PID,991,3528,Float,20,228,0,Float,20,228,0,%DB20.DBD228,,%,2,100.0
+304,050FL260N06F01,991CD100G53,"1St Cleaner Floation Train, Flow",1ый ряд перечист.флотац_ск.поток,1 Off/On,50,42 Siemens V77 Ext AI,991,3181,Flt/Trig/Sts,15,2172,0,,0,0,0,%DB15.DBD2172,,m3/h,0,1.0
+-1944,050FL260I11,991CD100G53,Level Control Y30/Y31 Mode,Режим управления уровнем Y30/Y31,33 Controller Mode (V7.7),0,41 Siemens V77 PID,991,3527,16 Bit/Time,21,108,0,16 Bit,3527,82,0,%DB21.DBD108,,,,
+968,050FL260I11_SPA,991CD100G53,Level Control Y50/Y51,Контроль уровня Y50/Y51,3 Stop/Run,1,41 Siemens V77 PID,991,3527,Float,20,216,0,Float,20,216,0,%DB20.DBD216,,mm,0,700.0
+969,050FL260I11_SPM,991CD100G53,Level Control Y50/Y51,Контроль уровня Y50/Y51,4 Int/Ext,1,41 Siemens V77 PID,991,3527,Float,20,220,0,Float,20,220,0,%DB20.DBD220,,%,1,100.0
+302,050FL260N01L01,991CD100G53,1St CleanerFlotation Train Level,1ый ряд перечист.флотац_уровень,1 Off/On,50,42 Siemens V77 Ext AI,991,3179,Flt/Trig/Sts,15,2148,0,,0,0,0,%DB15.DBD2148,,mm,0,1.0
+790,050FL260M02_I01,991CD100G53,Rotor-2 Current,"Ротор-2, ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,9,360,0,,0,0,0,%DB9.DBD360,,A,0,1.0
+-1948,050FL260I04,991CD100G53,Air Flow Control Mode,Режим регулир.потока воздуха ,33 Controller Mode (V7.7),0,41 Siemens V77 PID,991,3531,16 Bit/Time,21,124,0,16 Bit,3531,82,0,%DB21.DBD124,,,,
+984,050FL260I04_SPA,991CD100G53,Air Flow Control,Режим регулир.потока воздуха ,3 Stop/Run,1,41 Siemens V77 PID,991,3531,Float,20,248,0,Float,20,248,0,%DB20.DBD248,,m3/h,0,800.0
+985,050FL260I04_SPM,991CD100G53,Air Flow Control,Режим регулир.потока воздуха ,4 Int/Ext,1,41 Siemens V77 PID,991,3531,Float,20,252,0,Float,20,252,0,%DB20.DBD252,,%,2,100.0
+307,050FL260N08F01,991CD100G53,"1St Cleaner Floation Train, Flow",1ый ряд перечист.флотац_ск.поток,1 Off/On,50,42 Siemens V77 Ext AI,991,3184,Flt/Trig/Sts,15,2208,0,,0,0,0,%DB15.DBD2208,,m3/h,0,1.0
+-1950,050FL260I15,991CD100G53,Level Control Y70/Y71 Mode,Режим управления уровнем Y70/Y71,33 Controller Mode (V7.7),0,41 Siemens V77 PID,991,3533,16 Bit/Time,21,132,0,16 Bit,3533,82,0,%DB21.DBD132,,,,
+992,050FL260I15_SPA,991CD100G53,Level Control Y70/Y71,Контроль уровня Y70/Y71,3 Stop/Run,1,41 Siemens V77 PID,991,3533,Float,20,264,0,Float,20,264,0,%DB20.DBD264,,mm,0,400.0
+993,050FL260I15_SPM,991CD100G53,Level Control Y70/Y71,Контроль уровня Y70/Y71,4 Int/Ext,1,41 Siemens V77 PID,991,3533,Float,20,268,0,Float,20,268,0,%DB20.DBD268,,%,2,100.0
+308,050FL260N03L01,991CD100G53,1St CleanerFlotation Train Level,1ый ряд перечист.флотац_уровень,1 Off/On,50,42 Siemens V77 Ext AI,991,3185,Flt/Trig/Sts,15,2220,0,,0,0,0,%DB15.DBD2220,,mm,0,1.0
+798,050FL260M04_I01,991CD100G53,Rotor-4 Current,"Ротор-4, ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,9,392,0,,0,0,0,%DB9.DBD392,,A,0,1.0
+-1949,050FL260I05,991CD100G53,Air Flow Control Mode,Режим регулир.потока воздуха ,33 Controller Mode (V7.7),0,41 Siemens V77 PID,991,3532,16 Bit/Time,21,128,0,16 Bit,3532,82,0,%DB21.DBD128,,,,
+988,050FL260I05_SPA,991CD100G53,Air Flow Control,Режим регулир.потока воздуха ,3 Stop/Run,1,41 Siemens V77 PID,991,3532,Float,20,256,0,Float,20,256,0,%DB20.DBD256,,m3/h,0,800.0
+989,050FL260I05_SPM,991CD100G53,Air Flow Control,Режим регулир.потока воздуха ,4 Int/Ext,1,41 Siemens V77 PID,991,3532,Float,20,260,0,Float,20,260,0,%DB20.DBD260,,%,2,100.0
+307,050FL260N08F01,991CD100G53,"1St Cleaner Floation Train, Flow",1ый ряд перечист.флотац_ск.поток,1 Off/On,50,42 Siemens V77 Ext AI,991,3184,Flt/Trig/Sts,15,2208,0,,0,0,0,%DB15.DBD2208,,m3/h,0,1.0
+803,050FL260M05_I01,991CD100G53,Rotor-5 Current,"Ротор-5, ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,9,412,0,,0,0,0,%DB9.DBD412,,A,0,1.0
+-1951,050FL260I06,991CD100G53,Air Flow Control Mode,Режим регулир.потока воздуха ,33 Controller Mode (V7.7),0,41 Siemens V77 PID,991,3534,16 Bit/Time,21,136,0,16 Bit,3534,82,0,%DB21.DBD136,,,,
+996,050FL260I06_SPA,991CD100G53,Air Flow Control,Регулирование потока воздуха,3 Stop/Run,1,41 Siemens V77 PID,991,3534,Float,20,272,0,Float,20,272,0,%DB20.DBD272,,m3/h,0,800.0
+997,050FL260I06_SPM,991CD100G53,Air Flow Control,Регулирование потока воздуха,4 Int/Ext,1,41 Siemens V77 PID,991,3534,Float,20,276,0,Float,20,276,0,%DB20.DBD276,,%,2,100.0
+310,050FL260N10F01,991CD100G53,"1St Cleaner Floation Train, Flow",1ый ряд перечист.флотац_ск.поток,1 Off/On,50,42 Siemens V77 Ext AI,991,3187,Flt/Trig/Sts,15,2244,0,,0,0,0,%DB15.DBD2244,,m3/h,0,1.0
+-1953,050FL260I17,991CD100G53,Level Control Y80/Y81 Mode,Режим управления уровнем Y80/Y81,33 Controller Mode (V7.7),0,41 Siemens V77 PID,991,3536,16 Bit/Time,21,144,0,16 Bit,3536,82,0,%DB21.DBD144,,,,
+1004,050FL260I17_SPA,991CD100G53,Level Control Y80/Y81,Контроль уровня Y80/Y81,3 Stop/Run,1,41 Siemens V77 PID,991,3536,Float,20,288,0,Float,20,288,0,%DB20.DBD288,,mm,0,400.0
+1005,050FL260I17_SPM,991CD100G53,Level Control Y80/Y81,Контроль уровня Y80/Y81,4 Int/Ext,1,41 Siemens V77 PID,991,3536,Float,20,292,0,Float,20,292,0,%DB20.DBD292,,%,2,100.0
+311,050FL260N04L01,991CD100G53,1St CleanerFlotation Train Level,1ый ряд перечист.флотац_уровень,1 Off/On,50,42 Siemens V77 Ext AI,991,3188,Flt/Trig/Sts,15,2256,0,,0,0,0,%DB15.DBD2256,,mm,0,1.0
+804,050FL260M06_I01,991CD100G53,Rotor-6 Current,"Ротор-6, ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,9,416,0,,0,0,0,%DB9.DBD416,,A,0,1.0
+-1952,050FL260I07,991CD100G53,Air Flow Control Mode,Режим регулир.потока воздуха ,33 Controller Mode (V7.7),0,41 Siemens V77 PID,991,3535,16 Bit/Time,21,140,0,16 Bit,3535,82,0,%DB21.DBD140,,,,
+1000,050FL260I07_SPA,991CD100G53,Air Flow Control,Регулирование подачи воздуха,3 Stop/Run,1,41 Siemens V77 PID,991,3535,Float,20,280,0,Float,20,280,0,%DB20.DBD280,,m3/h,0,800.0
+1001,050FL260I07_SPM,991CD100G53,Air Flow Control,Регулирование подачи воды,4 Int/Ext,1,41 Siemens V77 PID,991,3535,Float,20,284,0,Float,20,284,0,%DB20.DBD284,,%,0,100.0
+312,050FL260N11F01,991CD100G53,"1St Cleaner Floation Train, Flow",1ый ряд перечист.флотац_ск.поток,1 Off/On,50,42 Siemens V77 Ext AI,991,3189,Flt/Trig/Sts,15,2268,0,,0,0,0,%DB15.DBD2268,,m3/h,0,1.0
+811,050FL260M07_I01,991CD100G53,Rotor-7 Current,"Ротор-7, ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,9,444,0,,0,0,0,%DB9.DBD444,,A,0,1.0
+29,050TK276N01L01,991CD100G53,"Froth Tank, Level",Емкость пенного прод. Уровень,1 Off/On,50,42 Siemens V77 Ext AI,991,3029,Flt/Trig/Sts,15,348,0,,0,0,0,%DB15.DBD348,,%,1,1.0
+301,050TK277N01L01,991CD100G53,"Tank, Level",Уровень емкости,1 Off/On,50,42 Siemens V77 Ext AI,991,3178,Flt/Trig/Sts,15,2136,0,,0,0,0,%DB15.DBD2136,,%,0,1.0
+-1929,050TK278I01,991CD100G53,Control Level Tank 278,,33 Controller Mode (V7.7),0,41 Siemens V77 PID,991,3512,16 Bit/Time,21,48,0,16 Bit,3512,82,0,%DB21.DBD48,,,,
+908,050TK278I01_SPA,991CD100G53,Control Level Tank 278,Контроль уровня емкости 278,3 Stop/Run,1,41 Siemens V77 PID,991,3512,Float,20,96,0,Float,20,96,0,%DB20.DBD96,,%,0,100.0
+909,050TK278I01_SPM,991CD100G53,Control Level Tank 278,Контроль уровня емкости 278,4 Int/Ext,1,41 Siemens V77 PID,991,3512,Float,20,100,0,Float,20,100,0,%DB20.DBD100,,%,1,100.0
+3325,050TK278N01L01,991CD100G53,"Tank, Level",Уровень 278 зумпфа,1 Off/On,50,42 Siemens V77 Ext AI,991,3133,Flt/Trig/Sts,15,1596,0,,0,0,0,%DB15.DBD1596,,%,1,1.0
+3295,040SU811N01L01,991CD100G53,Sump Level,Зумпф. Уровень,1 Off/On,50,42 Siemens V77 Ext AI,991,3175,Flt/Trig/Sts,15,2100,0,,0,0,0,%DB15.DBD2100,,%,1,1.0
+-1957,040SP815I01,991CD100G53,Pump Speed Control Mode,Режим управл.скоростью насоса,33 Controller Mode (V7.7),0,41 Siemens V77 PID,991,3540,16 Bit/Time,21,160,0,16 Bit,3540,82,0,%DB21.DBD160,,,,
+1020,040SP815I01_SPA,991CD100G53,Pump Speed Control,Контроль скорости насоса,3 Stop/Run,1,41 Siemens V77 PID,991,3540,Float,20,320,0,Float,20,320,0,%DB20.DBD320,,%,0,100.0
+1021,040SP815I01_SPM,991CD100G53,Pump Speed Control,Контроль скорости насоса,4 Int/Ext,1,41 Siemens V77 PID,991,3540,Float,20,324,0,Float,20,324,0,%DB20.DBD324,,%,1,100.0
+1145,040SP815I02_SPA,991CD100G53,Flow Control,Регулятор расхода,3 Stop/Run,1,41 Siemens V77 PID,991,3560,Float,20,480,0,Float,20,480,0,%DB20.DBD480,,m3/h,0,900.0
+1146,040SP815I02_SPM,991CD100G53,PID03,,4 Int/Ext,1,41 Siemens V77 PID,991,3560,Float,20,484,0,Float,20,484,0,%DB20.DBD484,,%,2,100.0
+340,040SU810N01L01,991CD100G53,"Sump, Level",Зумпф. Уровень,1 Off/On,50,42 Siemens V77 Ext AI,991,3217,Flt/Trig/Sts,15,2604,0,,0,0,0,%DB15.DBD2604,,%,1,1.0
+-3902,905PU939_40I01,992CD100G04,"FL260, Frother Addition",Добавление вспенивателя FL260,33 Controller Mode (V7.7),0,41 Siemens V77 PID,992,3561,16 Bit/Time,21,244,0,16 Bit,3561,82,0,%DB21.DBD244,,,,
+1967,905PU939_40I01_SPA,992CD100G04,"FL260, Frother Addition","Добавление вспенив-ля, FL260",3 Stop/Run,1,41 Siemens V77 PID,992,3561,Float,20,488,0,Float,20,488,0,%DB20.DBD488,,lit/h,1,100.0
+1968,905PU939_40I01_SPM,992CD100G04,"FL260, Frother Addition","Добавление ксантогената, FL260",4 Int/Ext,1,41 Siemens V77 PID,992,3561,Float,20,492,0,Float,20,492,0,%DB20.DBD492,,%,0,100.0
+1380,905RP100A01WORD22,992CD100G04,"905-PU939-N01
+","905-PU939-N01
+",1 Off/On,50,42 Siemens V77 Ext AI,992,3133,Flt/Trig/Sts,15,1596,0,,0,0,0,%DB15.DBD1596,,lit/h,1,1.0
+3119,080MC480N02F01,992CD100G11,Cyclone Cluster Feed Flow,Расход питания Г/Циклонов,1 Off/On,50,42 Siemens V77 Ext AI,992,3309,Flt/Trig/Sts,15,3708,0,,0,0,0,%DB15.DBD3708,,m3/h,1,1.0
+324,040SP815N01F01,991CD100G53,"SP815 pumping, Flow","Нагнетание SP815, поток",1 Off/On,50,42 Siemens V77 Ext AI,991,3201,Flt/Trig/Sts,15,2412,0,,0,0,0,%DB15.DBD2412,,m3/h,0,1.0
+332,050PU272U01J01,991CD100G53,"Froth Pump Cleaner, Power","Пенный насос, перечист.флот.Мощн",1 Off/On,50,42 Siemens V77 Ext AI,991,3209,Flt/Trig/Sts,15,2508,0,,0,0,0,%DB15.DBD2508,,kW,0,1.0
+331,050PU272U01I01,991CD100G53,"Froth Pump Cleaner, Current","Пенный насос, перечист.флот. Ток",1 Off/On,50,42 Siemens V77 Ext AI,991,3208,Flt/Trig/Sts,15,2496,0,,0,0,0,%DB15.DBD2496,,A,0,1.0
+333,050PU272U01S01,991CD100G53,"Froth Pump Cleaner, Speed","Пенный насос, перечист.флот.Скор",1 Off/On,50,42 Siemens V77 Ext AI,991,3210,Flt/Trig/Sts,15,2520,0,,0,0,0,%DB15.DBD2520,,%,0,1.0
+335,050PU274U01J01,991CD100G53,"Froth Pump Cleaner, Power","Пенный насос, перечист.флот.Мощн",1 Off/On,50,42 Siemens V77 Ext AI,991,3212,Flt/Trig/Sts,15,2544,0,,0,0,0,%DB15.DBD2544,,kW,0,1.0
+334,050PU274U01I01,991CD100G53,"Froth Pump Cleaner, Current","Пенный насос, перечист.флот. Ток",1 Off/On,50,42 Siemens V77 Ext AI,991,3211,Flt/Trig/Sts,15,2532,0,,0,0,0,%DB15.DBD2532,,A,0,1.0
+336,050PU274U01S01,991CD100G53,"Froth Pump Cleaner, Speed","Пенный насос, перечист.флот.Скор",1 Off/On,50,42 Siemens V77 Ext AI,991,3213,Flt/Trig/Sts,15,2556,0,,0,0,0,%DB15.DBD2556,,%,0,1.0
+338,040SP815U01J01,991CD100G53,Clean.ScavangerTailsPump Power ,Насос хвост. дофлотации Мощность,1 Off/On,50,42 Siemens V77 Ext AI,991,3215,Flt/Trig/Sts,15,2580,0,,0,0,0,%DB15.DBD2580,,kW,0,1.0
+337,040SP815U01I01,991CD100G53,Clean.ScavangerTailsPump Current,Насос хвостов дофлотации Ток,1 Off/On,50,42 Siemens V77 Ext AI,991,3214,Flt/Trig/Sts,15,2568,0,,0,0,0,%DB15.DBD2568,,A,0,1.0
+339,040SP815U01S01,991CD100G53,Clean.ScavangerTailsPump Speed,Насос хвост. дофлотации Скорость,1 Off/On,50,42 Siemens V77 Ext AI,991,3216,Flt/Trig/Sts,15,2592,0,,0,0,0,%DB15.DBD2592,,%,0,1.0
+2908,040SP816U01J01,991CD100G53,Clean.ScavangerTailsPump Power,Насос хвост. дофлотации Мощность,4 Int/Ext,1,0 No Algorithm,991,0,Float,2712,38,0,,0,0,0,%DB2712.DBD38,,kW,0,1.0
+2906,040SP816U01I01,991CD100G53,Clean.ScavangerTailsPump Current,"Насос хвост. дофлотации, Ток",4 Int/Ext,1,0 No Algorithm,991,0,Float,2712,30,0,,0,0,0,%DB2712.DBD30,,A,0,1.0
+2910,040SP816U01S01,991CD100G53,Clean.ScavangerTailsPump Speed,Насос хвост. дофлотации Скорость,4 Int/Ext,1,0 No Algorithm,991,0,Float,2712,46,0,,0,0,0,%DB2712.DBD46,,%,0,1.0
+2805,080SN540M01I01,992CD100G10,SN Current,Ток грохота,4 Int/Ext,1,0 No Algorithm,992,0,Float,2703,34,0,,0,0,0,%DB2703.DBD34,,A,1,1.0
+2807,080SN540M02I01,992CD100G10,SN Current,Ток грохота,4 Int/Ext,1,0 No Algorithm,992,0,Float,2704,34,0,,0,0,0,%DB2704.DBD34,,A,1,1.0
+1012,050PU272I01_SPA,991CD100G53,Pressure Control,Контроль давления,3 Stop/Run,1,41 Siemens V77 PID,991,3538,Float,20,304,0,Float,20,304,0,%DB20.DBD304,,kPa,0,500.0
+1236,080MC480N01P01,992CD100G11,Cyclone Cluster Feed Pressure,Давление питания Г/Циклонов,1 Off/On,50,42 Siemens V77 Ext AI,992,3004,Flt/Trig/Sts,15,48,0,,0,0,0,%DB15.DBD48,,kPa,1,100.0
+1591,080TN450N01F01,992CD100G13,"CIL Feed Thickener, Flow",Подача в сгуститель. Расход,1 Off/On,50,42 Siemens V77 Ext AI,992,3246,Flt/Trig/Sts,15,2952,0,,0,0,0,%DB15.DBD2952,,m3/h,1,1.0
+3497,080TK481N01L01,992CD100G11,"2nd Hydrocyclones tank, Level","Емкость 2-х гидр-нов,Уровень",1 Off/On,50,42 Siemens V77 Ext AI,992,3359,Flt/Trig/Sts,15,4308,0,,0,0,0,%DB15.DBD4308,,%,0,1.0
+-3595,080TK490I01,992CD100G10,Lime to 080TK490 Mode,Режим: известь в 080TK490,33 Controller Mode (V7.7),0,41 Siemens V77 PID,992,3534,16 Bit/Time,21,136,0,16 Bit,3534,82,0,%DB21.DBD136,,,,
+1442,080TK491N02A01,992CD100G10,Oxygen Concentration TK491,Концентрация кислорода,1 Off/On,50,42 Siemens V77 Ext AI,992,3165,Flt/Trig/Sts,15,1980,0,,0,0,0,%DB15.DBD1980,,mg/lt,2,1.0
+1867,080TK491N01A01,992CD100G10,"CIL Tank,pH",рН в емкости УВР,1 Off/On,50,42 Siemens V77 Ext AI,992,3290,Flt/Trig/Sts,15,3480,0,,0,0,0,%DB15.DBD3480,,pH,1,1.0
+-3316,080AG491M01,992CD100G10,Pre-aeration Agitator,Агитатор пре-аэрации,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2675,16 Bit/Time,4,700,0,16 Bit,2675,66,0,%DB4.DBD700,,,,
+1794,080TK490I01_SPA,992CD100G10,Lime to 080TK490,Известь в 080TK490,3 Stop/Run,1,41 Siemens V77 PID,992,3534,Float,20,272,0,Float,20,272,0,%DB20.DBD272,,pH,1,14.0
+1795,080TK490I01_SPM,992CD100G10,Lime to 080TK490,Известь в 080TK490,4 Int/Ext,1,41 Siemens V77 PID,992,3534,Float,20,276,0,Float,20,276,0,%DB20.DBD276,,%,0,100.0
+2829,080AG490M01I01,992CD100G10,Agitator Current,Ток мешалки,4 Int/Ext,1,0 No Algorithm,992,0,Float,2673,34,0,,0,0,0,%DB2673.DBD34,,A,0,1.0
+-3596,080TK491I01,992CD100G10,Lime to 080TK491 Mode,Режим: известь в 080TK491,33 Controller Mode (V7.7),0,41 Siemens V77 PID,992,3535,16 Bit/Time,21,140,0,16 Bit,3535,82,0,%DB21.DBD140,,,,
+1798,080TK491I01_SPA,992CD100G10,Lime to 080TK491,Известь в 080TK491,3 Stop/Run,1,41 Siemens V77 PID,992,3535,Float,20,280,0,Float,20,280,0,%DB20.DBD280,,pH,1,14.0
+1799,080TK491I01_SPM,992CD100G10,Lime to 080TK491,Известь в 080TK491,4 Int/Ext,1,41 Siemens V77 PID,992,3535,Float,20,284,0,Float,20,284,0,%DB20.DBD284,,%,1,100.0
+2831,080AG491M01I01,992CD100G10,Agitator Current,Ток мешалки,4 Int/Ext,1,0 No Algorithm,992,0,Float,2675,34,0,,0,0,0,%DB2675.DBD34,,A,0,1.0
+1867,080TK491N01A01,992CD100G10,"CIL Tank,pH",рН в емкости УВР,1 Off/On,50,42 Siemens V77 Ext AI,992,3290,Flt/Trig/Sts,15,3480,0,,0,0,0,%DB15.DBD3480,,pH,1,1.0
+-3316,080AG491M01,992CD100G10,Pre-aeration Agitator,Агитатор пре-аэрации,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2675,16 Bit/Time,4,700,0,16 Bit,2675,66,0,%DB4.DBD700,,,,
+2831,080AG491M01I01,992CD100G10,Agitator Current,Ток мешалки,4 Int/Ext,1,0 No Algorithm,992,0,Float,2675,34,0,,0,0,0,%DB2675.DBD34,,A,0,1.0
+-3375,080PU491U01,992CD100G10,Carbon Transfer Pump 11,Насос перекачивания угля,81 Ext. UniMotor (V7.7),0,1080 Siemens V77 Ext Motor ACS880,992,2709,16 Bit/Time,4,836,0,16 Bit,2709,66,0,%DB4.DBD836,,,,
+-2475,080SN491M01,992CD100G10,"Pre-aeration, Interstage Screen","Преаэрация, промеж.грохот",81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2543,16 Bit/Time,4,172,0,16 Bit,2543,66,0,%DB4.DBD172,,,,
+3497,080TK481N01L01,992CD100G11,"2nd Hydrocyclones tank, Level","Емкость 2-х гидр-нов,Уровень",1 Off/On,50,42 Siemens V77 Ext AI,992,3359,Flt/Trig/Sts,15,4308,0,,0,0,0,%DB15.DBD4308,,%,0,1.0
+1574,080TK491A01N01,992CD100G10,"NaCN,Stream1",Анализатор цианида. Поток 1,1 Off/On,50,42 Siemens V77 Ext AI,992,3229,Flt/Trig/Sts,15,2748,0,,0,0,0,%DB15.DBD2748,,ppm,0,1.0
+1572,080TK491A01N02,992CD100G10,"Analyser, pH Stream 1",Анализатор рН. Поток 1,1 Off/On,50,42 Siemens V77 Ext AI,992,3227,Flt/Trig/Sts,15,2724,0,,0,0,0,%DB15.DBD2724,,pH,1,1.0
+-3320,080AG500M01,992CD100G10,CIL Tank Agitator,Уголь в раст. Мешалка емкости,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2677,16 Bit/Time,4,708,0,16 Bit,2677,66,0,%DB4.DBD708,,,,
+2833,080AG500M01I01,992CD100G10,Agitator Current,Ток мешалки,4 Int/Ext,1,0 No Algorithm,992,0,Float,2677,34,0,,0,0,0,%DB2677.DBD34,,A,0,1.0
+-3351,080PU500U01,992CD100G10,Carbon Transfer Pump,Насос перекачивания угля,81 Ext. UniMotor (V7.7),0,1080 Siemens V77 Ext Motor ACS880,992,2695,16 Bit/Time,4,780,0,16 Bit,2695,66,0,%DB4.DBD780,,,,
+1578,080PU500U01I01,992CD100G10,"Carbon Transfer Pump, Current",Насос трансфера угля. Ток,1 Off/On,50,42 Siemens V77 Ext AI,992,3233,Flt/Trig/Sts,15,2796,0,,0,0,0,%DB15.DBD2796,,A,0,1.0
+-3321,080SN500M01,992CD100G10,CIL Tank Interstage Screen,Емкость УВР. Промеж.грохот,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2678,16 Bit/Time,4,712,0,16 Bit,2678,66,0,%DB4.DBD712,,,,
+2801,080SN500M01I01,992CD100G10,SN Current,Ток грохота,4 Int/Ext,1,0 No Algorithm,992,0,Float,2678,34,0,,0,0,0,%DB2678.DBD34,,A,0,1.0
+-3328,080AG501M01,992CD100G10,CIL Tank Agitator,Уголь в раст. Мешалка емкости,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2680,16 Bit/Time,4,720,0,16 Bit,2680,66,0,%DB4.DBD720,,,,
+2835,080AG501M01I01,992CD100G10,Agitator Current,Ток мешалки,4 Int/Ext,1,0 No Algorithm,992,0,Float,2680,34,0,,0,0,0,%DB2680.DBD34,,A,0,1.0
+-3354,080PU501M01,992CD100G10,Carbon Transfer Pump,Насос перекачивания угля,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2696,16 Bit/Time,4,784,0,16 Bit,2696,66,0,%DB4.DBD784,,,,
+2849,080PU501M01I01,992CD100G10,PU Current,Ток насоса перекачки,4 Int/Ext,1,0 No Algorithm,992,0,Float,2696,34,0,,0,0,0,%DB2696.DBD34,,A,0,1.0
+-3329,080SN501M01,992CD100G10,CIL Tank Interstage Screen,Емкость УВР. Промеж.грохот,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2681,16 Bit/Time,4,724,0,16 Bit,2681,66,0,%DB4.DBD724,,,,
+2803,080SN501M01I01,992CD100G10,SN Current,Ток грохота,4 Int/Ext,1,0 No Algorithm,992,0,Float,2681,34,0,,0,0,0,%DB2681.DBD34,,A,0,1.0
+-3333,080AG502M01,992CD100G10,CIL Tank Agitator,Уголь в раст. Мешалка емк-ти,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2683,16 Bit/Time,4,732,0,16 Bit,2683,66,0,%DB4.DBD732,,,,
+2837,080AG502M01I01,992CD100G10,Agitator Current,Ток мешалки,4 Int/Ext,1,0 No Algorithm,992,0,Float,2683,34,0,,0,0,0,%DB2683.DBD34,,A,0,1.0
+-3356,080PU502M01,992CD100G10,Carbon Transfer Pump,Насос перекачивания угля,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2697,16 Bit/Time,4,788,0,16 Bit,2697,66,0,%DB4.DBD788,,,,
+2851,080PU502M01I01,992CD100G10,PU Current,Ток насоса перекачки,4 Int/Ext,1,0 No Algorithm,992,0,Float,2697,34,0,,0,0,0,%DB2697.DBD34,,A,0,1.0
+-3334,080SN502M01,992CD100G10,CIL Tank Interstage Screen,Емкость УВР. Промеж.грохот,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2684,16 Bit/Time,4,736,0,16 Bit,2684,66,0,%DB4.DBD736,,,,
+2809,080SN502M01I01,992CD100G10,SN Current,Ток грохота,4 Int/Ext,1,0 No Algorithm,992,0,Float,2684,34,0,,0,0,0,%DB2684.DBD34,,A,0,1.0
+-3336,080AG503M01,992CD100G10,CIL Tank Agitator,Уголь в раст. Мешалка емк-ти,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2685,16 Bit/Time,4,740,0,16 Bit,2685,66,0,%DB4.DBD740,,,,
+2839,080AG503M01I01,992CD100G10,Agitator Current,Ток мешалки,4 Int/Ext,1,0 No Algorithm,992,0,Float,2685,34,0,,0,0,0,%DB2685.DBD34,,A,0,1.0
+-3358,080PU503M01,992CD100G10,Carbon Transfer Pump,Насос перекачивания угля,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2698,16 Bit/Time,4,792,0,16 Bit,2698,66,0,%DB4.DBD792,,,,
+2853,080PU503M01I01,992CD100G10,PU Current,Ток насоса перекачки,4 Int/Ext,1,0 No Algorithm,992,0,Float,2698,34,0,,0,0,0,%DB2698.DBD34,,A,0,1.0
+-3337,080SN503M01,992CD100G10,CIL Tank Interstage Screen,Емкость УВР. Промеж.грохот,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2686,16 Bit/Time,4,744,0,16 Bit,2686,66,0,%DB4.DBD744,,,,
+2811,080SN503M01I01,992CD100G10,SN Current,Ток грохота,4 Int/Ext,1,0 No Algorithm,992,0,Float,2686,34,0,,0,0,0,%DB2686.DBD34,,A,0,1.0
+-3339,080AG504M01,992CD100G10,CIL Tank Agitator,Уголь в раст. Мешалка емк-ти,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2687,16 Bit/Time,4,748,0,16 Bit,2687,66,0,%DB4.DBD748,,,,
+2841,080AG504M01I01,992CD100G10,Agitator Current,Ток мешалки,4 Int/Ext,1,0 No Algorithm,992,0,Float,2687,34,0,,0,0,0,%DB2687.DBD34,,A,0,1.0
+-3360,080PU504U01,992CD100G10,Carbon Transfer Pump,Насос перекачивания угля,81 Ext. UniMotor (V7.7),0,1080 Siemens V77 Ext Motor ACS880,992,2699,16 Bit/Time,4,796,0,16 Bit,2699,66,0,%DB4.DBD796,,,,
+-3340,080SN504M01,992CD100G10,CIL Tank Interstage Screen,Емкость УВР. Промеж.грохот,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2688,16 Bit/Time,4,752,0,16 Bit,2688,66,0,%DB4.DBD752,,,,
+2813,080SN504M01I01,992CD100G10,SN Current,Ток грохота,4 Int/Ext,1,0 No Algorithm,992,0,Float,2688,34,0,,0,0,0,%DB2688.DBD34,,A,0,1.0
+1575,080TK504N01T01,992CD100G10,Temperature of Slurry,Температура пульпы,1 Off/On,50,42 Siemens V77 Ext AI,992,3230,Flt/Trig/Sts,15,2760,0,,0,0,0,%DB15.DBD2760,,°C,1,1.0
+-3342,080AG505M01,992CD100G10,CIL Tank Agitator,Уголь в раст. Мешалка емк-ти,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2689,16 Bit/Time,4,756,0,16 Bit,2689,66,0,%DB4.DBD756,,,,
+2843,080AG505M01I01,992CD100G10,Agitator Current,Ток мешалки,4 Int/Ext,1,0 No Algorithm,992,0,Float,2689,34,0,,0,0,0,%DB2689.DBD34,,A,0,1.0
+2857,080PU505M01I01,992CD100G10,PU Current,Ток насоса перекачки,4 Int/Ext,1,0 No Algorithm,992,0,Float,2700,34,0,,0,0,0,%DB2700.DBD34,,A,0,1.0
+-3343,080SN505M01,992CD100G10,CIL Tank Interstage Screen,Емкость УВР. Промеж.грохот,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2690,16 Bit/Time,4,760,0,16 Bit,2690,66,0,%DB4.DBD760,,,,
+2815,080SN505M01I01,992CD100G10,SN Current,Ток грохота,4 Int/Ext,1,0 No Algorithm,992,0,Float,2690,34,0,,0,0,0,%DB2690.DBD34,,A,0,1.0
+3439,080TK505N01T01,992CD100G10,Temperature of Slurry,Температура пульпы,1 Off/On,50,42 Siemens V77 Ext AI,992,3330,Flt/Trig/Sts,15,3960,0,,0,0,0,%DB15.DBD3960,,°C,1,1.0
+-3345,080AG506M01,992CD100G10,CIL Tank Agitator,Уголь в раст. Мешалка емк-ти,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2691,16 Bit/Time,4,764,0,16 Bit,2691,66,0,%DB4.DBD764,,,,
+2845,080AG506M01I01,992CD100G10,Agitator Current,Ток мешалки,4 Int/Ext,1,0 No Algorithm,992,0,Float,2691,34,0,,0,0,0,%DB2691.DBD34,,A,0,1.0
+-3364,080PU506M01,992CD100G10,Carbon Transfer Pump,Насос перекачивания угля,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2701,16 Bit/Time,4,804,0,16 Bit,2701,66,0,%DB4.DBD804,,,,
+2859,080PU506M01I01,992CD100G10,PU Current,Ток насоса перекачки,4 Int/Ext,1,0 No Algorithm,992,0,Float,2701,34,0,,0,0,0,%DB2701.DBD34,,A,0,1.0
+-3346,080SN506M01,992CD100G10,CIL Tank Interstage Screen,Емкость УВР. Промеж.грохот,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2692,16 Bit/Time,4,768,0,16 Bit,2692,66,0,%DB4.DBD768,,,,
+2817,080SN506M01I01,992CD100G10,SN Current,Ток грохота,4 Int/Ext,1,0 No Algorithm,992,0,Float,2692,34,0,,0,0,0,%DB2692.DBD34,,A,0,1.0
+3441,080TK506N01T01,992CD100G10,Temperature of Slurry,Температура пульпы,1 Off/On,50,42 Siemens V77 Ext AI,992,3331,Flt/Trig/Sts,15,3972,0,,0,0,0,%DB15.DBD3972,,°C,1,1.0
+3443,080TK456N02T01,992CD100G10,Hot Water Temperature,Температура нагретой воды,1 Off/On,50,42 Siemens V77 Ext AI,992,3332,Flt/Trig/Sts,15,3984,0,,0,0,0,%DB15.DBD3984,,°C,1,1.0
+-3348,080AG507M01,992CD100G10,CIL Tank Agitator,Уголь в раст. Мешалка емк-ти,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2693,16 Bit/Time,4,772,0,16 Bit,2693,66,0,%DB4.DBD772,,,,
+2847,080AG507M01I01,992CD100G10,Agitator Current,Ток мешалки,4 Int/Ext,1,0 No Algorithm,992,0,Float,2693,34,0,,0,0,0,%DB2693.DBD34,,A,0,1.0
+-3366,080PU507M01,992CD100G10,Carbon Transfer Pump,Насос перекачивания угля,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2702,16 Bit/Time,4,808,0,16 Bit,2702,66,0,%DB4.DBD808,,,,
+2861,080PU507M01I01,992CD100G10,PU Current,Ток насоса перекачки,4 Int/Ext,1,0 No Algorithm,992,0,Float,2702,34,0,,0,0,0,%DB2702.DBD34,,A,0,1.0
+-3349,080SN507M01,992CD100G10,CIL Tank Interstage Screen,Емкость УВР. Промеж.грохот,81 Ext. UniMotor (V7.7),0,254 Siemens V77 Ext Motor 3UF70,992,2694,16 Bit/Time,4,776,0,16 Bit,2694,66,0,%DB4.DBD776,,,,
+2819,080SN507M01I01,992CD100G10,SN Current,Ток грохота,4 Int/Ext,1,0 No Algorithm,992,0,Float,2694,34,0,,0,0,0,%DB2694.DBD34,,A,0,1.0
+2819,080SN507M01I01,992CD100G10,SN Current,Ток грохота,4 Int/Ext,1,0 No Algorithm,992,0,Float,2694,34,0,,0,0,0,%DB2694.DBD34,,A,0,1.0
+-1189,050SF280U01S01,991CD100G51,Select Starch Calculation SP,Включить расчет объема подачи,21 Select On/Off (V7.7),0,38 Siemens V77 Select,991,2252,16 Bit/Time,10,608,0,16 Bit,2252,14,0,%DB10.DBD608,,,,
+-4555,020MD021RDY,991CD100G13,MD21 Metall Det Ready,Конв21 Металдетектор Готов,35 Stop/Run (V7.7),0,0 No Algorithm,991,0,8 Bit,110,103,2,,0,0,0,%DB110.DBD103,,,,
+-4875,020BC021U01MD,991CD100G13,BC021 MotionDetector,"Конв21, датчик движения",34 Off/On (V7.7),0,0 No Algorithm,991,0,8 Bit,2758,6,7,,0,0,0,%DB2758.DBD6,,,,
+-4609,020MD021_MetallOnBelt,991CD100G13,MD21 Metall On Belt,Конв21 Металл на ленте BC21,35 Stop/Run (V7.7),0,0 No Algorithm,991,0,8 Bit,19,206,6,,0,0,0,%DB19.DBD206,,,,
