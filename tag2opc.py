@@ -555,7 +555,7 @@ def convert_tags_groups_to_sdv(
         sdv_path: Путь к шаблону .sdv файла
         output_path: Путь для выходного файла
     """
-    print(f"{Fore.CYAN}Загрузка групп из {tags_list_path}...{Style.RESET_ALL}")
+    print(f"{Fore.CYAN}Загрузка списка тегов из {tags_list_path}...{Style.RESET_ALL}")
     groups = parse_tags_list_groups(tags_list_path)
 
     if not groups:
@@ -565,7 +565,7 @@ def convert_tags_groups_to_sdv(
     total_tags = sum(len(tags) for tags in groups.values())
     print(f"{Fore.GREEN}Найдено групп: {len(groups)}, всего тегов: {total_tags}{Style.RESET_ALL}")
 
-    print(f"{Fore.CYAN}Загрузка JSON из {json_path}...{Style.RESET_ALL}")
+    print(f"{Fore.CYAN}Загрузка базы тегов ECS7 из {json_path}...{Style.RESET_ALL}")
     with open(json_path, 'r', encoding='utf-8') as f:
         all_yaml_tags = json.load(f)
 
@@ -601,7 +601,7 @@ def convert_tags_groups_to_sdv(
 
             # Извлекаем адрес из PLC.Input
             plc_input = tag_data.get('PLC', {}).get('Input', {})
-            yaml_type = plc_input.get('Type', '')
+            json_type = plc_input.get('Type', '')
 
             if not plc_input or plc_input.get('Block') is None or plc_input.get('Word') is None:
                 skipped_tags.append(f"Тег '{tag_name}': нет PLC.Input.Block или PLC.Input.Word")
@@ -615,11 +615,11 @@ def convert_tags_groups_to_sdv(
 
             converted_tags_csv.append(tag_data)
 
-            type_info = map_type(yaml_type)
+            type_info = map_type(json_type)
             tag_node = create_tag_node(tag_data, plc_address, type_info)
             converted_tags.append(tag_node)
 
-            print(f"  {Fore.GREEN}✓{Style.RESET_ALL} {tag_name} -> {Fore.YELLOW}DB{plc_address['db_number']}.DBD{plc_address['byte_address']}{Style.RESET_ALL} (bit: {plc_address['bit_address']}) ({Fore.CYAN}{type_info[0]}/{type_info[1]}{Style.RESET_ALL})")
+            print(f"  {Fore.GREEN}✓{Style.RESET_ALL}  {Fore.YELLOW}{tag_name} - {Style.RESET_ALL} {tag_data.get('DescEng', '')} {Fore.CYAN}.{Style.RESET_ALL}")
 
         # Выводим список пропущенных тегов
         if skipped_tags:
