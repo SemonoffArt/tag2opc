@@ -15,6 +15,9 @@ from typing import Any, Optional
 
 from colorama import init, Fore, Style
 
+# Версия программы
+__version__ = "0.1.0"
+
 # Инициализация colorama для кроссплатформенной работы с цветами
 init()
 
@@ -674,8 +677,24 @@ def main():
     """Точка входа скрипта."""
     import argparse
 
+    # Получаем базовый путь для работы с .exe файлом
+    # При запуске .exe через PyInstaller:
+    # - sys.frozen = True
+    # - sys.executable содержит путь к временному exe-файлу
+    # - sys._MEIPASS содержит путь к временной папке с ресурсами
+    if getattr(sys, 'frozen', False):
+        # Запуск .exe файла
+        if getattr(sys, '_MEIPASS', False):
+            # PyInstaller unpacked файлы во временную папку
+            base_path = Path(sys._MEIPASS)
+        else:
+            base_path = Path(sys.executable).parent
+    else:
+        # Запуск .py скрипта
+        base_path = Path(__file__).parent
+
     parser = argparse.ArgumentParser(
-        description='Конвертер тегов ECS7 в конфигурацию устройства MasterOPC (.sdv)',
+        description=f'Конвертер тегов ECS7 в конфигурацию устройства MasterOPC (.sdv) v{__version__}',
         add_help=False
     )
     parser.add_argument(
@@ -697,22 +716,32 @@ def main():
         action='help',
         help='Показать справку'
     )
+    parser.add_argument(
+        '-v', '--version',
+        action='version',
+        version=f'%(prog)s {__version__}',
+        help='Показать версию программы'
+    )
 
     args = parser.parse_args()
 
-    # Проверка существования файлов
-    sdv_path = Path('./data/template.sdv')
+    # Проверка существования файлов (используем базовый путь)
+    sdv_path = base_path / 'data' / 'template.sdv'
     if not sdv_path.exists():
         print(f"{Fore.RED}Ошибка: Файл SDV не найден: {sdv_path}{Style.RESET_ALL}")
         sys.exit(1)
 
-    json_path = Path('./data/tags.json')
+    json_path = base_path / 'data' / 'tags.json'
     if not json_path.exists():
         print(f"{Fore.RED}Ошибка: Файл с базой тегов ECS не найден: {json_path}{Style.RESET_ALL}")
         sys.exit(1)
 
     # Режим конвертации с группами из tags_list.txt
-    if not args.input.exists():
+    # Для входного файла проверяем оба пути: относительно текущей директории и base_path
+    input_path = args.input
+    if not input_path.exists():
+        input_path = base_path / args.input
+    if not input_path.exists():
         print(f"{Fore.RED}Ошибка: Файл c тегами для конвертации не найден: {args.input}{Style.RESET_ALL}")
         sys.exit(1)
 
@@ -720,7 +749,7 @@ def main():
     output_path = args.output if args.output.suffix == '.sdv' else args.output.with_suffix('.sdv')
 
     convert_tags_groups_to_sdv(
-        tags_list_path=args.input,
+        tags_list_path=input_path,
         json_path=json_path,
         sdv_path=sdv_path,
         output_path=output_path
