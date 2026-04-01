@@ -13,6 +13,11 @@ import sys
 from pathlib import Path
 from typing import Any, Optional
 
+from colorama import init, Fore, Style
+
+# Инициализация colorama для кроссплатформенной работы с цветами
+init()
+
 
 def parse_tags_list_groups(filepath: Path) -> dict[str, list[str]]:
     """
@@ -550,25 +555,25 @@ def convert_tags_groups_to_sdv(
         sdv_path: Путь к шаблону .sdv файла
         output_path: Путь для выходного файла
     """
-    print(f"Загрузка групп из {tags_list_path}...")
+    print(f"{Fore.CYAN}Загрузка групп из {tags_list_path}...{Style.RESET_ALL}")
     groups = parse_tags_list_groups(tags_list_path)
 
     if not groups:
-        print("⚠ Группы с тегами не найдены")
+        print(f"{Fore.YELLOW}⚠ Группы с тегами не найдены{Style.RESET_ALL}")
         return
 
     total_tags = sum(len(tags) for tags in groups.values())
-    print(f"Найдено групп: {len(groups)}, всего тегов: {total_tags}")
+    print(f"{Fore.GREEN}Найдено групп: {len(groups)}, всего тегов: {total_tags}{Style.RESET_ALL}")
 
-    print(f"Загрузка JSON из {json_path}...")
+    print(f"{Fore.CYAN}Загрузка JSON из {json_path}...{Style.RESET_ALL}")
     with open(json_path, 'r', encoding='utf-8') as f:
         all_yaml_tags = json.load(f)
 
     # Создаём словарь для быстрого поиска тегов по имени
     yaml_tags_dict = {tag['Tag']: tag for tag in all_yaml_tags}
-    print(f"Загружено {len(all_yaml_tags)} тегов из JSON")
+    print(f"{Fore.GREEN}Загружено {len(all_yaml_tags)} тегов из JSON{Style.RESET_ALL}")
 
-    print(f"Загрузка SDV шаблона из {sdv_path}...")
+    print(f"{Fore.CYAN}Загрузка SDV шаблона из {sdv_path}...{Style.RESET_ALL}")
     sdv_data = load_sdv_file(sdv_path)
     root_node = sdv_data.get('node', {})
 
@@ -578,7 +583,7 @@ def convert_tags_groups_to_sdv(
     converted_tags_csv = []
 
     for group_name, tag_names in groups.items():
-        print(f"\nОбработка группы '{group_name}' ({len(tag_names)} тегов)...")
+        print(f"\n{Fore.MAGENTA}Обработка группы '{group_name}' ({len(tag_names)} тегов)...{Style.RESET_ALL}")
 
         # Создаём новую группу
         group_node = create_group_node(group_name)
@@ -593,7 +598,7 @@ def convert_tags_groups_to_sdv(
                 continue
 
             tag_data = yaml_tags_dict[tag_name]
-            
+
             # Извлекаем адрес из PLC.Input
             plc_input = tag_data.get('PLC', {}).get('Input', {})
             yaml_type = plc_input.get('Type', '')
@@ -614,13 +619,13 @@ def convert_tags_groups_to_sdv(
             tag_node = create_tag_node(tag_data, plc_address, type_info)
             converted_tags.append(tag_node)
 
-            print(f"  ✓ {tag_name} -> DB{plc_address['db_number']}.DBD{plc_address['byte_address']} (bit: {plc_address['bit_address']}) ({type_info[0]}/{type_info[1]})")
+            print(f"  {Fore.GREEN}✓{Style.RESET_ALL} {tag_name} -> {Fore.YELLOW}DB{plc_address['db_number']}.DBD{plc_address['byte_address']}{Style.RESET_ALL} (bit: {plc_address['bit_address']}) ({Fore.CYAN}{type_info[0]}/{type_info[1]}{Style.RESET_ALL})")
 
         # Выводим список пропущенных тегов
         if skipped_tags:
-            print(f"\n\033[91mПропущенные теги ({len(skipped_tags)}):\033[0m")
+            print(f"\n{Fore.RED}Пропущенные теги ({len(skipped_tags)}):{Style.RESET_ALL}")
             for skipped in skipped_tags:
-                print(f"\033[91m  - {skipped}\033[0m")
+                print(f"{Fore.RED}  - {skipped}{Style.RESET_ALL}")
 
         # Добавляем теги в группу
         add_tags_to_group(group_node, converted_tags)
@@ -631,19 +636,19 @@ def convert_tags_groups_to_sdv(
 
         all_converted_tags += len(converted_tags)
         all_converted_tags_list.extend(converted_tags_csv)
-        print(f"  Добавлено {len(converted_tags)} тегов в группу '{group_name}'")
+        print(f"  {Fore.GREEN}Добавлено {len(converted_tags)} тегов в группу '{group_name}'{Style.RESET_ALL}")
 
-    print(f"\nСохранение результата в {output_path}...")
+    print(f"\n{Fore.CYAN}Сохранение результата в {output_path}...{Style.RESET_ALL}")
     save_sdv_file(sdv_data, output_path)
 
-    print(f"Нормализация ключей node_xx*...")
+    print(f"{Fore.CYAN}Нормализация ключей node_xx*...{Style.RESET_ALL}")
     normalize_node_keys(output_path)
 
     # Выгрузка конвертированных тегов в CSV
     csv_output_path = output_path.with_suffix('.csv')
     create_tags_csv(converted_tags_csv, csv_output_path)
 
-    print(f"\nГотово! Конвертировано тегов: {all_converted_tags} в {len(groups)} группах")
+    print(f"\n{Fore.GREEN}Готово! Конвертировано тегов: {all_converted_tags} в {len(groups)} группах{Style.RESET_ALL}")
 
 
 def normalize_node_keys(filepath: Path) -> None:
@@ -662,7 +667,7 @@ def normalize_node_keys(filepath: Path) -> None:
     normalized_content = re.sub(pattern, '"node"', content)
 
     filepath.write_text(normalized_content, encoding='cp1251')
-    print(f"Нормализация ключей node_xx* завершена для {filepath}")
+    print(f"{Fore.GREEN}Нормализация ключей node_xx* завершена для {filepath}{Style.RESET_ALL}")
 
 
 def main():
@@ -698,17 +703,17 @@ def main():
     # Проверка существования файлов
     sdv_path = Path('./data/template.sdv')
     if not sdv_path.exists():
-        print(f"Ошибка: Файл SDV не найден: {sdv_path}")
+        print(f"{Fore.RED}Ошибка: Файл SDV не найден: {sdv_path}{Style.RESET_ALL}")
         sys.exit(1)
 
     json_path = Path('./data/tags.json')
     if not json_path.exists():
-        print(f"Ошибка: Файл с базой тегов ECS не найден: {json_path}")
+        print(f"{Fore.RED}Ошибка: Файл с базой тегов ECS не найден: {json_path}{Style.RESET_ALL}")
         sys.exit(1)
 
     # Режим конвертации с группами из tags_list.txt
     if not args.input.exists():
-        print(f"Ошибка: Файл c тегами для конвертации не найден: {args.input}")
+        print(f"{Fore.RED}Ошибка: Файл c тегами для конвертации не найден: {args.input}{Style.RESET_ALL}")
         sys.exit(1)
 
     # Добавляем расширение .sdv к выходному файлу, если его нет
