@@ -670,90 +670,56 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description='Конвертер тегов из JSON в конфигурацию Siemens PLC (.sdv)'
+        description='Конвертер тегов ECS7 в конфигурацию устройства MasterOPC (.sdv)',
+        add_help=False
     )
     parser.add_argument(
-        '--json', '-j',
+        'input',
         type=Path,
-        default=Path('./data/tags.json'),
-        help='Путь к файлу tags.json (по умолчанию: tags.json)'
-    )
-    parser.add_argument(
-        '--sdv', '-s',
-        type=Path,
-        default=Path('./data/template.sdv'),
-        help='Путь к шаблону .sdv файла (по умолчанию: data/template.sdv)'
-    )
-    parser.add_argument(
-        '--output', '-o',
-        type=Path,
-        default=Path('siemens_plc_opc_converted.sdv'),
-        help='Путь к выходному файлу (по умолчанию: siemens_plc_opc_converted.sdv)'
-    )
-    parser.add_argument(
-        '--group', '-g',
-        type=str,
-        default='Flot',
-        help='Имя группы для заполнения тегами (по умолчанию: Flot)'
-    )
-    parser.add_argument(
-        '--filter', '-f',
-        type=Path,
+        nargs='?',
         default=Path('tags_list.txt'),
-        help='Путь к файлу со списком тегов для фильтрации (по умолчанию: None)'
+        help='Путь к файлу c тегами для конвертации (по умолчанию: tags_list.txt)'
     )
     parser.add_argument(
-        '--normalize', '-n',
+        'output',
         type=Path,
-        default=Path('siemens_plc_opc_converted.sdv'),
-        help='Нормализовать ключи node_xx* в указанном файле (без конвертации)'
+        nargs='?',
+        default=Path('siemens_plc_opc.sdv'),
+        help='Путь к выходному файлу (по умолчанию: siemens_plc_opc.sdv)'
     )
     parser.add_argument(
-        '--tags-list', '-t',
-        type=Path,
-        default=Path('tags_list.txt'),
-        help='Путь к файлу tags_list.txt с группами (режим конвертации с группами)'
-    )
-    parser.add_argument(
-        '--mode', '-m',
-        type=str,
-        choices=['json', 'groups'],
-        default='groups',
-        help='Режим работы: json (обычная конвертация) или groups (с группами из tags_list.txt)'
+        '-h', '-?', '--help', '--h', '--?',
+        action='help',
+        help='Показать справку'
     )
 
     args = parser.parse_args()
 
     # Проверка существования файлов
-    if not args.sdv.exists():
-        print(f"Ошибка: Файл SDV не найден: {args.sdv}")
+    sdv_path = Path('./data/template.sdv')
+    if not sdv_path.exists():
+        print(f"Ошибка: Файл SDV не найден: {sdv_path}")
         sys.exit(1)
 
-    if args.mode == 'groups':
-        # Режим конвертации с группами из tags_list.txt
-        if not args.tags_list.exists():
-            print(f"Ошибка: Файл tags_list не найден: {args.tags_list}")
-            sys.exit(1)
+    json_path = Path('./data/tags.json')
+    if not json_path.exists():
+        print(f"Ошибка: Файл с базой тегов ECS не найден: {json_path}")
+        sys.exit(1)
 
-        if not args.json.exists():
-            print(f"Ошибка: Файл JSON не найден: {args.json}")
-            sys.exit(1)
+    # Режим конвертации с группами из tags_list.txt
+    if not args.input.exists():
+        print(f"Ошибка: Файл c тегами для конвертации не найден: {args.input}")
+        sys.exit(1)
 
-        convert_tags_groups_to_sdv(
-            tags_list_path=args.tags_list,
-            json_path=args.json,
-            sdv_path=args.sdv,
-            output_path=args.output
-        )
-    else:
-        raise ValueError("Обычный режим конвертации удалён. Используйте режим --groups")
+    # Добавляем расширение .sdv к выходному файлу, если его нет
+    output_path = args.output if args.output.suffix == '.sdv' else args.output.with_suffix('.sdv')
 
-    # Если указан только --normalize, выполняем только нормализацию
-    if args.normalize:
-        if not args.normalize.exists():
-            print(f"Ошибка: Файл не найден: {args.normalize}")
-            sys.exit(1)
-        normalize_node_keys(args.normalize)
+    convert_tags_groups_to_sdv(
+        tags_list_path=args.input,
+        json_path=json_path,
+        sdv_path=sdv_path,
+        output_path=output_path
+    )
 
 
 if __name__ == '__main__':
