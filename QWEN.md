@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**tag2opc** — утилита командной строки на Python для конвертации тегов из JSON-формата в конфигурацию устройства Siemens PLC (.sdv) для системы MasterOPC.
+**tag2opc** — утилита командной строки, автоматизирующая настройку MasterOPC. Инструмент преобразует список тегов из SCADA FLS ECS7 в готовый файл конфигурации (.sdv) для OPC сервера.
 
 ### Основное назначение
 - Чтение тегов из JSON-файла (`data/tags.json`)
@@ -29,8 +29,8 @@ tag2opc/
 │   ├── tags.json            # Исходные данные тегов
 │   └── template.sdv         # Шаблон SDV-файла
 ├── resources/               # Ресурсы (иконки, изображения)
-├── siemens_plc_opc_converted.sdv  # Выходной файл
-└── siemens_plc_opc_converted.csv  # CSV-отчёт
+├── siemens_plc_opc.sdv  # Выходной файл
+└── siemens_plc_opc.csv  # CSV-отчёт
 ```
 
 ## Building and Running
@@ -160,4 +160,4 @@ JSON-формат с табуляцией как разделителем, ко�
 - SDV-файлы используют нестандартный JSON с табуляцией
 - Ключи `node_xx*` нормализуются в `node` после сохранения
 - Файл `template.sdv` содержит шаблон устройства Siemens PLC
-- Поддерживаются адреса: `%DBn.DBD/W/B{addr}`, `%I/Q/M/T/C{addr}.{bit}`
+
