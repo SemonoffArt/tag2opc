@@ -1,30 +1,32 @@
-# Project Context: tags2opc
+# Project Context: tag2opc
 
 ## Project Overview
 
-**tags2opc** — утилита командной строки на Python для конвертации тегов из YAML-формата в конфигурацию Siemens PLC (.sdv) для системы MasterOPC.
+**tag2opc** — утилита командной строки на Python для конвертации тегов из JSON-формата в конфигурацию устройства Siemens PLC (.sdv) для системы MasterOPC.
 
 ### Основное назначение
-- Чтение тегов из YAML-файла (`data/tags.yaml`)
+- Чтение тегов из JSON-файла (`data/tags.json`)
 - Парсинг групп тегов из текстового файла (`tags_list.txt`)
 - Генерация конфигурационного файла `.sdv` в формате JSON с иерархической структурой
 - Создание CSV-отчёта с конвертированными тегами
 
 ### Технологии
-- **Язык:** Python 3.13
+- **Язык:** Python 3.10+
 - **Менеджер пакетов:** uv
-- **Зависимости:** PyYAML >= 6.0
-- **Форматы:** YAML, JSON (SDV), CSV
+- **Зависимости:** 
+  - PyYAML >= 6.0
+  - colorama >= 0.4.6
+- **Форматы:** JSON (вход), JSON (SDV), CSV
 
 ## Структура проекта
 
 ```
 tag2opc/
-├── tags2opc.py              # Основной скрипт конвертера
+├── tag2opc.py               # Основной скрипт конвертера
 ├── pyproject.toml           # Конфигурация проекта
 ├── tags_list.txt            # Список тегов с группировкой
 ├── data/
-│   ├── tags.yaml            # Исходные данные тегов
+│   ├── tags.json            # Исходные данные тегов
 │   └── template.sdv         # Шаблон SDV-файла
 ├── resources/               # Ресурсы (иконки, изображения)
 ├── siemens_plc_opc_converted.sdv  # Выходной файл
@@ -40,40 +42,38 @@ uv sync
 
 ### Запуск конвертера
 
-**Режим с группами (по умолчанию):**
 ```bash
-python tags2opc.py --mode groups
-```
+# Запуск с параметрами по умолчанию
+python tag2opc.py
 
-**Режим одиночной группы:**
-```bash
-python tags2opc.py --mode yaml --group Flot
+# Запуск с указанием входного и выходного файлов
+python tag2opc.py tags_list.txt siemens_plc_opc_converted
+
+# Показать справку
+python tag2opc.py --help
+python tag2opc.py -h
+python tag2opc.py -?
 ```
 
 ### Аргументы командной строки
 
 | Аргумент | Короткий | Описание | По умолчанию |
 |----------|----------|----------|--------------|
-| `--yaml` | `-y` | Путь к файлу tags.yaml | `./data/tags.yaml` |
-| `--sdv` | `-s` | Путь к шаблону .sdv | `./data/template.sdv` |
-| `--output` | `-o` | Путь выходного файла | `siemens_plc_opc_converted.sdv` |
-| `--group` | `-g` | Имя группы для заполнения | `Flot` |
-| `--filter` | `-f` | Файл со списком тегов для фильтрации | `tags_list.txt` |
-| `--tags-list` | `-t` | Файл tags_list.txt с группами | `tags_list.txt` |
-| `--mode` | `-m` | Режим: `yaml` или `groups` | `groups` |
-| `--normalize` | `-n` | Нормализовать ключи node_xx* в файле | — |
+| `input` | — | Путь к файлу со списком тегов | `./tags_list.txt` |
+| `output` | — | Путь к выходному файлу | `siemens_plc_opc_converted.sdv` |
+| `--help` | `-h`, `-?` | Показать справку | — |
 
 ### Примеры использования
 
 ```bash
-# Конвертация с группами из tags_list.txt
-python tags2opc.py -m groups -t tags_list.txt
+# Конвертация с параметрами по умолчанию
+python tag2opc.py
 
-# Конвертация в конкретную группу
-python tags2opc.py -m yaml -g Flot -y data/tags.yaml
+# Конвертация с указанием файлов
+python tag2opc.py tags_list.txt siemens_plc_opc_converted
 
-# Нормализация ключей в существующем файле
-python tags2opc.py -n siemens_plc_opc_converted.sdv
+# Показать справку
+python tag2opc.py -h
 ```
 
 ## Форматы данных
@@ -89,22 +89,26 @@ tag3
 tag4
 ```
 
-### tags.yaml (структура тега)
-```yaml
-- Id: 1407
-  Tag: _920_OUTDOOR_TEMP
-  Groups: 992CD100G04
-  DescEng: Outdoor temp
-  DescRus: Уличная температура
-  PLC:
-    PLCNo: '992'
-    Input:
-      Type: Float
-      Block: 9
-      Word: 88
-  PLC_INP: '%DB9.DBD88'
-  EngUnitId: °C
-  Constant1: 1.0
+### tags.json (структура тега)
+```json
+{
+    "Id": 1407,
+    "Tag": "_920_OUTDOOR_TEMP",
+    "Groups": "992CD100G04",
+    "DescEng": "Outdoor temp",
+    "DescRus": "Уличная температура",
+    "PLC": {
+        "PLCNo": "992",
+        "Input": {
+            "Type": "Float",
+            "Block": 9,
+            "Word": 88
+        }
+    },
+    "PLC_INP": "%DB9.DBD88",
+    "EngUnitId": "°C",
+    "Constant1": 1.0
+}
 ```
 
 ### SDV-файл
@@ -117,21 +121,21 @@ JSON-формат с табуляцией как разделителем, ко�
 
 | Функция | Описание |
 |---------|----------|
-| `parse_tags_list_groups()` | Парсинг groups из tags_list.txt |
+| `parse_tags_list_groups()` | Парсинг групп из tags_list.txt |
 | `parse_plc_address()` | Парсинг адресов типа `%DB4.DBD320` |
-| `map_type()` | Маппинг типов данных YAML → S7 |
+| `map_type()` | Маппинг типов данных JSON → S7 |
 | `create_tag_node()` | Создание структуры тега для SDV |
 | `convert_tags_groups_to_sdv()` | Основная функция конвертации |
 | `normalize_node_keys()` | Нормализация ключей node_xx* → node |
 
 ## Типы данных (маппинг)
 
-| YAML Type | S7 DataType |
+| JSON Type | S7 DataType |
 |-----------|-------------|
 | Float/Flt | REAL |
 | 16 Bit | WORD |
 | 32 Bit | DINT |
-| 8 Bit/Byte | BYTE |
+| 8 Bit/Byte | BOOL |
 | Bool/Bit | BOOL |
 
 ## Development Practices
@@ -139,7 +143,17 @@ JSON-формат с табуляцией как разделителем, ко�
 - **Стиль кода:** PEP 8, type hints для всех функций
 - **Кодировка:** UTF-8 для входных файлов, cp1251 для SDV
 - **Обработка ошибок:** ValueError для некорректных адресов PLC
-- **Логирование:** print-сообщения с индикацией прогресса
+- **Вывод:** Цветные сообщения с использованием colorama
+
+## Цветовой вывод
+
+| Цвет | Элемент |
+|------|---------|
+| CYAN (голубой) | Заголовки этапов загрузки/сохранения |
+| GREEN (зелёный) | Успешные операции, количество тегов, галочки ✓ |
+| MAGENTA (пурпурный) | Заголовки групп |
+| YELLOW (жёлтый) | Адреса PLC (DB-блоки) |
+| RED (красный) | Ошибки и пропущенные теги |
 
 ## Примечания
 
