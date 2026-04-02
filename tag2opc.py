@@ -40,9 +40,14 @@ def parse_tags_list_groups(filepath: Path) -> dict[str, list[str]]:
 
     Returns:
         Словарь {имя_группы: [список_тегов]}
+
+    Raises:
+        ValueError: При обнаружении повторяющихся тегов
     """
     groups: dict[str, list[str]] = {}
     current_group: Optional[str] = None
+    seen_tags: dict[str, str] = {}  # {tag_name: group_name}
+    duplicates: list[str] = []
 
     content = filepath.read_text(encoding='utf-8')
 
@@ -60,7 +65,11 @@ def parse_tags_list_groups(filepath: Path) -> dict[str, list[str]]:
                 groups[current_group] = []
         elif current_group:
             # Это тег
-            groups[current_group].append(line)
+            if line in seen_tags:
+                print(f"{Fore.YELLOW}⚠ Пропущен дубликат тега '{line}' (группа '{current_group}'){Style.RESET_ALL}")
+            else:
+                seen_tags[line] = current_group
+                groups[current_group].append(line)
 
     return groups
 
@@ -622,7 +631,7 @@ def convert_tags_groups_to_sdv(
             tag_node = create_tag_node(tag_data, plc_address, type_info)
             converted_tags.append(tag_node)
 
-            print(f"  {Fore.GREEN}✓{Style.RESET_ALL}  {Fore.YELLOW}{tag_name} - {Style.RESET_ALL} {tag_data.get('DescEng', '')} {Fore.CYAN}.{Style.RESET_ALL}")
+            print(f"  {Fore.GREEN}✓{Style.RESET_ALL}  {Fore.GREEN}{tag_name} - {Style.RESET_ALL} {tag_data.get('DescEng', '')} {Fore.CYAN}.{Style.RESET_ALL}")
 
         # Выводим список пропущенных тегов
         if skipped_tags:
